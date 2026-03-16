@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        {% load static %}
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title> PlenaPsi | Psicologia, Desenvolvimento e Perícia</title>
+        <link rel="stylesheet" href="{% static 'style.css' %}">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+    </head>
+
+    <body>
+        <header>
+            <nav class="navbar">
+                <div class="logo">
+                    <a> PlenaPsi</a>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="{% url 'home' %}">Início</a></li>
+                    <li><a href="pages/psicologia-clínica.html">Psicologia Clínica</a></li>
+                    <li><a href="pages/pericia.html">Perícia Psicológica</a></li>
+                    <li><a href="pages/cursos-palestras.html">Cursos e Palestras</a></li>
+                    <li><a href="pages/sobre.html">Quem Somos</a></li>
+                    <a href="https://lueducaonlinepsicologiaesociologia.wordpress.com/" target="_blank" rel="noopener noreferrer">Blog</a>
+                    <li><a href="pages/contato.html">Contato</a></li>
+
+                </ul>
+                <a class="btn-contato" href="#">Entre em Contato</a>
+            </nav>
+        </header>
+    <section class="hero">
+
+<div class="hero-container">
+
+<div class="hero-text" data-aos="fade-right">
+
+<h1>Cuidar da mente é transformar a vida.</h1>
+
+<p>
+Na PlenaPsi oferecemos apoio psicológico, avaliação profissional
+e programas de desenvolvimento humano para ajudar você
+a encontrar clareza, equilíbrio e bem-estar.
+</p>
+
+<div class="hero-buttons">
+
+<a href="#" class="btn-primary">Agendar Atendimento</a>
+
+<a href="#" class="btn-secondary">Saiba Mais</a>
+
+</div>
+
+</div>
+
+<div class="hero-image" data-aos="fade-left">
+
+<img src="{% static 'IMG/psicologa.png' %}">
+
+</div>
+
+</div>
+
+</section>
+
+<section class="servicos">
+<h2>Nossos Serviços</h2>
+<div class="servicos-container">
+<div class="card">
+<i class="fa-solid fa-brain"></i>
+<h3>Psicologia Clínica</h3>
+<p>
+Atendimento psicológico individual focado no desenvolvimento emocional e bem-estar.
+</p>
+</div>
+<div class="card">
+<i class="fa-solid fa-scale-balanced"></i>
+<h3>Perícia Psicológica</h3>
+<p>
+Avaliações psicológicas técnicas para processos judiciais e administrativos.
+</p>
+</div>
+<div class="card">
+<i class="fa-solid fa-chalkboard-user"></i>
+<h3>Cursos e Palestras</h3>
+<p>
+Capacitação e desenvolvimento humano para empresas, escolas e profissionais.
+</p>
+</div>
+</div>
+</section>
+
+<section class="about">
+
+<div class="about-container" data-aos="fade-up">
+
+<div class="about-text">
+
+<h2>O que é a PlenaPsi?</h2>
+
+<p>
+Fundada pela psicóloga Luciana Santos (CRP 12/25351), a PlenaPsi
+integra conhecimento científico da Psicologia com práticas de
+reflexão e autoconhecimento.
+</p>
+
+<p>
+Oferecemos atendimentos clínicos, avaliações psicológicas,
+perícias e programas de desenvolvimento humano para pessoas,
+famílias, empresas e instituições.
+</p>
+
+<p>
+Nosso propósito é oferecer um espaço de escuta qualificada,
+apoio emocional e desenvolvimento pessoal para que cada pessoa
+possa encontrar mais clareza, autonomia e sentido em sua vida.
+</p>
+
+</div>
+
+<div class="about-values">
+
+<div class="value-box">
+<h3>Missão</h3>
+<p>Promover desenvolvimento humano e saúde mental com ciência, ética e acolhimento.</p>
+</div>
+
+<div class="value-box">
+<h3>Visão</h3>
+<p>Tornar-se referência regional em desenvolvimento humano até 2028.</p>
+</div>
+
+<div class="value-box">
+<h3>Valores</h3>
+<p>Acolhimento, ética, sabedoria, confiança e respeito ao ser humano.</p>
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<section class="testimonials" data-aos="zoom-in">
+
+<h2>O que as pessoas dizem</h2>
+
+<div class="testimonials-container">
+
+<div class="testimonial-card">
+
+<p>
+“A psicoterapia me ajudou a compreender melhor minhas emoções
+e encontrar equilíbrio em momentos difíceis.”
+</p>
+
+<h4>— Cliente</h4>
+
+</div>
+
+<div class="testimonial-card">
+
+<p>
+“O trabalho da PlenaPsi trouxe clareza e segurança em um
+momento importante da minha vida.”
+</p>
+
+<h4>— Paciente</h4>
+
+</div>
+
+<div class="testimonial-card">
+
+<p>
+“Os encontros e palestras foram muito enriquecedores
+para nossa equipe.”
+</p>
+
+<h4>— Participante</h4>
+
+</div>
+
+</div>
+
+</section>
+
+<section class="contact">
+
+<h2>Vamos conversar?</h2>
+
+<p>
+Se você deseja saber mais sobre os atendimentos, cursos ou
+serviços da PlenaPsi, entre em contato. Será um prazer conversar com você.
+</p>
+
+<div class="contact-buttons">
+
+<a href="https://wa.me/5547988410744" class="btn-whatsapp">
+Falar no WhatsApp
+</a>
+
+<a href="mailto:lucianasantos@Plenapsi.com.br" class="btn-email">
+Enviar Email
+</a>
+
+</div>
+
+<div class="contact-info">
+
+<p><strong>WhatsApp:</strong> (47) 98841-0744</p>
+
+<p><strong>Email:</strong> lucianasantos@Plenapsi.com.br</p>
+
+<p><strong>Instagram:</strong> @LucianaSantos.Lueduca</p>
+
+</div>
+
+</section>
+
+<footer class="footer">
+
+<div class="footer-container">
+
+<div class="footer-logo">
+
+<h3>PlenaPsi</h3>
+
+<p>
+Psicologia, Desenvolvimento e Perícia.
+Promovendo saúde emocional e desenvolvimento humano.
+</p>
+
+</div>
+
+<div class="footer-links">
+
+<h4>Links</h4>
+
+<ul>
+
+<li><a href="#">Início</a></li>
+<li><a href="#">Psicologia Clínica</a></li>
+<li><a href="#">Perícia Psicológica</a></li>
+<li><a href="#">Cursos e Palestras</a></li>
+<li><a href="#">Contato</a></li>
+
+</ul>
+
+</div>
+
+<div class="footer-contact">
+
+<h4>Contato</h4>
+
+<p>WhatsApp: (47) 98841-0744</p>
+
+<p>Email: lucianasantos@Plenapsi.com.br</p>
+
+<p>Instagram: @LucianaSantos.Lueduca</p>
+
+</div>
+
+</div>
+
+<div class="footer-bottom">
+
+<p>© 2026 PlenaPsi - Todos os direitos reservados</p>
+
+</div>
+
+</footer>
+
+</section>
+
+<a href="https://wa.me/5547988410744" 
+class="whatsapp-float" 
+target="_blank">
+
+💬
+
+</a>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+<script>
+AOS.init();
+</script>
+
+<script src="static/JS/script.js"></script>
+
+</body>
+
+
+</html>
