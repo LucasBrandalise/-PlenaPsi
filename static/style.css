@@ -613,7 +613,7 @@ position:fixed;
 bottom:30px;
 right:30px;
 
-background:#25D366;
+background:#1f8846;
 
 color:white;
 
@@ -649,7 +649,7 @@ transform:scale(1.1);
 
 font-size:40px;
 
-color:#207D50;
+color:#10633b;
 
 margin-bottom:15px;
 
@@ -731,17 +731,29 @@ margin-bottom:15px;
     align-items:center;
     justify-content:space-between;
     max-width:1200px;
-    margin:auto;
+    margin:auto  
 }
+
 .hero{
-    padding: 140px 8%;
-    background: linear-gradient(135deg, #F9FBFA, #E8F5EE);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 120px 10%;
+    gap: 40px;
+    background: linear-gradient(135deg, #5bcb61, #b8f9d6);
 }
+
+.hero-text{
+    max-width: 550px;
+    flex: 1;
+}
+
 .hero-text h1{
-    font-size: 48px;
+    font-size: 52px;
     color: var(--verde-escuro);
     margin-bottom: 20px;
     line-height: 1.2;
+    font-weight: 700;
 }
 
 .hero-text p{
@@ -750,25 +762,20 @@ margin-bottom:15px;
     margin-bottom: 30px;
     line-height: 1.7;
 }
+
 .hero-buttons{
     display: flex;
     gap: 15px;
 }
+
 .hero-image img{
     width: 450px;
     border-radius: 12px;
 }
-.hero-text{
-    flex:1;
-}
-.hero-text h1{
-    font-size: 52px;
-    font-weight: 700;
-}
 .card i{
 
 font-size:40px;
-color:#4ca276;
+color:#408561;
 margin-bottom:15px;
 
 }
