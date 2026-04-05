@@ -8,5 +8,6 @@ urlpatterns = [
     path('cursos/', views.cursos, name='cursos'),
     path('sobre/', views.sobre, name='sobre'),
     path('contato/', views.contato, name='contato'),
+    path('teamplates/index/', views.index, name='home'),
 
 ]

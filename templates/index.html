@@ -1,278 +1,1308 @@
 <!DOCTYPE html>
-<html lang="pt-br">
-    <head>
-        {% load static %}
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title> PlenaPsi | Psicologia, Desenvolvimento e Perícia</title>
-        <link rel="stylesheet" href="{% static 'style.css' %}">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PlenaPsi – Psicologia, Desenvolvimento e Perícia</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/static/style.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <style>
+        
+  :root {
+    --verde: #207d50;
+    --verde-light: #e8f5ee;
+    --verde-mid: #b8dfc8;
+    --azul: #0c2372;
+    --azul-light: #e8ecf7;
+    --marrom: #6b3509;
+    --marrom-light: #f5ede6;
+    --off-white: #fafaf7;
+    --white: #ffffff;
+    --text: #1a1a1a;
+    --text-soft: #5a5a5a;
+    --text-muted: #9a9a9a;
+    --radius: 16px;
+    --radius-sm: 8px;
+    --shadow: 0 2px 24px rgba(0,0,0,0.06);
+    --shadow-hover: 0 8px 40px rgba(0,0,0,0.10);
+  }
 
-    </head>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
 
-    <body>
-        {% include 'navbar.html' %}
-    <section class="hero">
+  html { scroll-behavior: smooth; }
 
-<div class="hero-container">
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--off-white);
+    color: var(--text);
+    line-height: 1.65;
+    font-size: 16px;
+  }
 
-<div class="hero-text" data-aos="fade-right">
+  /* ── NAV ── */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 5%;
+    height: 68px;
+    background: rgba(250,250,247,0.88);
+    backdrop-filter: blur(14px);
+    border-bottom: 1px solid rgba(32,125,80,0.10);
+    transition: box-shadow .3s;
+  }
+  nav.scrolled { box-shadow: 0 2px 20px rgba(0,0,0,0.07); }
 
-<h1>Cuidar da mente é transformar a vida.</h1>
+  .nav-logo {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.35rem;
+    font-weight: 600;
+    color: var(--verde);
+    letter-spacing: 0.01em;
+    text-decoration: none;
+    line-height: 1.2;
+  }
+  .nav-logo span { color: var(--azul); }
 
-<p>
-Na PlenaPsi oferecemos apoio psicológico, avaliação profissional
-e programas de desenvolvimento humano para ajudar você
-a encontrar clareza, equilíbrio e bem-estar.
-</p>
+  .nav-links {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+  }
+  .nav-links a {
+    font-size: .875rem;
+    font-weight: 400;
+    color: var(--text-soft);
+    text-decoration: none;
+    letter-spacing: 0.02em;
+    transition: color .2s;
+  }
+  .nav-links a:hover { color: var(--verde); }
 
-<div class="hero-buttons">
+  .nav-cta {
+    background: var(--verde);
+    color: white !important;
+    padding: .45rem 1.1rem;
+    border-radius: 50px;
+    font-weight: 500 !important;
+    transition: background .2s, transform .1s !important;
+  }
+  .nav-cta:hover { background: #1a6641 !important; transform: translateY(-1px); }
 
-<a href="#" class="btn-primary">Agendar Atendimento</a>
+  .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; border: none; background: none; padding: 4px; }
+  .hamburger span { display: block; width: 22px; height: 2px; background: var(--text); border-radius: 2px; transition: .3s; }
 
-<a href="#" class="btn-secondary">Saiba Mais</a>
+  /* ── SECTIONS BASE ── */
+  section { padding: 90px 5%; }
+  .container { max-width: 1100px; margin: 0 auto; }
 
-</div>
+  /* ── HERO ── */
+  #home {
+    padding-top: 130px;
+    padding-bottom: 90px;
+    background: linear-gradient(160deg, #f0f9f4 0%, var(--off-white) 60%);
+    position: relative;
+    overflow: hidden;
+  }
+  #home::before {
+    content: '';
+    position: absolute;
+    top: -80px; right: -120px;
+    width: 500px; height: 500px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(32,125,80,0.07) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  #home::after {
+    content: '';
+    position: absolute;
+    bottom: -60px; left: -80px;
+    width: 350px; height: 350px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(12,35,114,0.05) 0%, transparent 70%);
+    pointer-events: none;
+  }
 
-</div>
+  .hero-inner {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
 
-<div class="hero-image" data-aos="fade-left">
+  .hero-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: .5rem;
+    background: var(--verde-light);
+    color: var(--verde);
+    font-size: .8rem;
+    font-weight: 500;
+    letter-spacing: .05em;
+    text-transform: uppercase;
+    padding: .35rem .9rem;
+    border-radius: 50px;
+    margin-bottom: 1.5rem;
+  }
+  .hero-tag::before { content: '●'; font-size: .5rem; }
 
-<img src="{% static 'IMG/mae.png' %}">
+  .hero-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2.4rem, 4vw, 3.6rem);
+    font-weight: 600;
+    line-height: 1.15;
+    color: var(--azul);
+    margin-bottom: 1.2rem;
+  }
+  .hero-title em {
+    font-style: italic;
+    color: var(--verde);
+  }
 
-</div>
+  .hero-subtitle {
+    font-size: 1.05rem;
+    color: var(--text-soft);
+    font-weight: 300;
+    margin-bottom: 2rem;
+    max-width: 440px;
+  }
 
-</div>
+  .hero-btns { display: flex; gap: 1rem; flex-wrap: wrap; }
 
+  .btn-primary {
+    background: var(--verde);
+    color: white;
+    padding: .75rem 1.8rem;
+    border-radius: 50px;
+    font-size: .95rem;
+    font-weight: 500;
+    text-decoration: none;
+    transition: background .2s, transform .15s, box-shadow .2s;
+    box-shadow: 0 4px 16px rgba(32,125,80,0.25);
+  }
+  .btn-primary:hover { background: #1a6641; transform: translateY(-2px); box-shadow: 0 6px 24px rgba(32,125,80,0.30); }
+
+  .btn-outline {
+    border: 1.5px solid var(--azul);
+    color: var(--azul);
+    padding: .75rem 1.8rem;
+    border-radius: 50px;
+    font-size: .95rem;
+    font-weight: 500;
+    text-decoration: none;
+    transition: background .2s, color .2s;
+  }
+  .btn-outline:hover { background: var(--azul); color: white; }
+
+  /* Hero visual */
+  .hero-visual {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .hero-card {
+    background: white;
+    border-radius: var(--radius);
+    padding: 1.5rem;
+    box-shadow: var(--shadow);
+    animation: float 5s ease-in-out infinite;
+  }
+  .hero-card:nth-child(2) { animation-delay: -2.5s; margin-left: 2rem; }
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-8px); }
+  }
+
+  .card-icon {
+    width: 42px; height: 42px;
+    border-radius: 10px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.3rem;
+    margin-bottom: .8rem;
+  }
+  .card-icon.green { background: var(--verde-light); }
+  .card-icon.blue { background: var(--azul-light); }
+  .card-icon.brown { background: var(--marrom-light); }
+
+  .card-title { font-size: .9rem; font-weight: 500; color: var(--text); margin-bottom: .3rem; }
+  .card-desc { font-size: .8rem; color: var(--text-muted); line-height: 1.5; }
+
+  /* ── SECTION LABELS ── */
+  .section-label {
+    font-size: .75rem;
+    font-weight: 500;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    color: var(--verde);
+    margin-bottom: .6rem;
+  }
+
+  .section-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(1.8rem, 3vw, 2.6rem);
+    font-weight: 600;
+    color: var(--azul);
+    line-height: 1.2;
+    margin-bottom: 1rem;
+  }
+
+  .section-subtitle {
+    font-size: 1rem;
+    color: var(--text-soft);
+    font-weight: 300;
+    max-width: 580px;
+  }
+
+  /* ── SERVIÇOS ── */
+  #servicos { background: white; }
+
+  .services-header { margin-bottom: 3rem; }
+
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+  }
+
+  .service-card {
+    background: var(--off-white);
+    border-radius: var(--radius);
+    padding: 2rem 1.6rem;
+    transition: transform .25s, box-shadow .25s;
+    border: 1px solid transparent;
+    cursor: default;
+  }
+  .service-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-hover);
+    border-color: var(--verde-mid);
+  }
+
+  .service-icon {
+    width: 48px; height: 48px;
+    border-radius: 12px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.4rem;
+    margin-bottom: 1.2rem;
+  }
+
+  .service-card h3 {
+    font-size: 1.05rem;
+    font-weight: 500;
+    color: var(--azul);
+    margin-bottom: .6rem;
+  }
+  .service-card p { font-size: .875rem; color: var(--text-soft); line-height: 1.6; }
+
+  /* ── PERÍCIA ── */
+  #pericia { background: var(--azul); color: white; }
+
+  .pericia-inner {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: start;
+  }
+
+  .pericia-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: .5rem;
+    background: rgba(255,255,255,0.12);
+    color: rgba(255,255,255,0.9);
+    font-size: .75rem;
+    letter-spacing: .06em;
+    text-transform: uppercase;
+    padding: .35rem .9rem;
+    border-radius: 50px;
+    margin-bottom: 1.2rem;
+  }
+
+  #pericia .section-title { color: white; }
+  #pericia .section-subtitle { color: rgba(255,255,255,0.75); max-width: 100%; }
+
+  .pericia-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: .8rem;
+    margin-top: 1.5rem;
+  }
+  .pericia-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: .75rem;
+    font-size: .9rem;
+    color: rgba(255,255,255,0.85);
+    line-height: 1.5;
+  }
+  .pericia-list li::before {
+    content: '✓';
+    flex-shrink: 0;
+    width: 22px; height: 22px;
+    background: rgba(32,125,80,0.5);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: .75rem;
+    color: #7de0a8;
+    margin-top: .1rem;
+  }
+
+  .pericia-cards { display: flex; flex-direction: column; gap: 1rem; }
+
+  .pericia-info-card {
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: var(--radius);
+    padding: 1.4rem;
+    backdrop-filter: blur(8px);
+  }
+  .pericia-info-card h4 {
+    font-size: .85rem;
+    font-weight: 500;
+    color: rgba(255,255,255,0.6);
+    text-transform: uppercase;
+    letter-spacing: .06em;
+    margin-bottom: .5rem;
+  }
+  .pericia-info-card p { font-size: .9rem; color: white; line-height: 1.5; }
+
+  /* ── PALESTRAS ── */
+  #palestras { background: var(--off-white); }
+
+  .palestras-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 3rem;
+    align-items: start;
+    margin-top: 2.5rem;
+  }
+
+  .format-cards { display: flex; flex-direction: column; gap: 1rem; }
+
+  .format-card {
+    background: white;
+    border-radius: var(--radius);
+    padding: 1.4rem 1.6rem;
+    box-shadow: var(--shadow);
+    display: flex;
+    gap: 1rem;
+    align-items: flex-start;
+    transition: transform .2s;
+  }
+  .format-card:hover { transform: translateX(4px); }
+
+  .format-icon {
+    width: 44px; height: 44px; flex-shrink: 0;
+    border-radius: 10px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.3rem;
+  }
+
+  .format-card h4 { font-size: .95rem; font-weight: 500; color: var(--azul); margin-bottom: .3rem; }
+  .format-card p { font-size: .83rem; color: var(--text-soft); }
+
+  .topics-box {
+    background: white;
+    border-radius: var(--radius);
+    padding: 2rem;
+    box-shadow: var(--shadow);
+    position: sticky;
+    top: 90px;
+  }
+  .topics-box h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--azul);
+    margin-bottom: 1.2rem;
+  }
+
+  .topic-pill {
+    display: inline-block;
+    background: var(--verde-light);
+    color: var(--verde);
+    font-size: .78rem;
+    font-weight: 500;
+    padding: .35rem .8rem;
+    border-radius: 50px;
+    margin: .25rem;
+    transition: background .2s, color .2s;
+  }
+  .topic-pill:hover { background: var(--verde); color: white; }
+
+  .topics-note {
+    margin-top: 1rem;
+    padding-top: 1rem;
+    border-top: 1px solid #eee;
+    font-size: .8rem;
+    color: var(--text-muted);
+    font-style: italic;
+  }
+
+  .publicos-wrap { margin-top: 2.5rem; }
+
+  .publicos-title {
+    font-size: .85rem;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: .08em;
+    margin-bottom: .8rem;
+  }
+
+  .publicos-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: .6rem;
+  }
+
+  .publico-tag {
+    display: flex;
+    align-items: center;
+    gap: .4rem;
+    background: var(--azul-light);
+    color: var(--azul);
+    font-size: .82rem;
+    font-weight: 500;
+    padding: .4rem .9rem;
+    border-radius: 50px;
+  }
+
+  /* ── QUEM SOMOS ── */
+  #sobre { background: white; }
+
+  .sobre-inner {
+    display: grid;
+    grid-template-columns: 1fr 1.4fr;
+    gap: 4rem;
+    align-items: start;
+  }
+
+  .sobre-photo-placeholder {
+    background: linear-gradient(145deg, var(--verde-light), var(--azul-light));
+    border-radius: var(--radius);
+    aspect-ratio: 3/4;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 4rem;
+    position: relative;
+    overflow: hidden;
+  }
+  .sobre-photo-placeholder::after {
+    content: 'Foto de Luciana Santos';
+    position: absolute;
+    bottom: 1rem;
+    font-size: .78rem;
+    color: var(--text-muted);
+    font-style: italic;
+    font-family: 'DM Sans', sans-serif;
+  }
+
+  .crp-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: .5rem;
+    background: var(--verde-light);
+    color: var(--verde);
+    font-size: .82rem;
+    font-weight: 500;
+    padding: .4rem 1rem;
+    border-radius: 50px;
+    margin-bottom: 1rem;
+    letter-spacing: .02em;
+  }
+
+  .sobre-bio {
+    font-size: .95rem;
+    color: var(--text-soft);
+    line-height: 1.75;
+    margin-top: 1rem;
+    font-weight: 300;
+  }
+
+  .formacoes { margin-top: 1.5rem; }
+  .formacoes-title { font-size: .8rem; font-weight: 500; text-transform: uppercase; letter-spacing: .07em; color: var(--text-muted); margin-bottom: .8rem; }
+
+  .formacao-item {
+    display: flex;
+    align-items: center;
+    gap: .75rem;
+    padding: .6rem 0;
+    border-bottom: 1px solid #f0f0f0;
+    font-size: .875rem;
+    color: var(--text-soft);
+  }
+  .formacao-item:last-child { border-bottom: none; }
+  .formacao-year { font-size: .78rem; color: var(--text-muted); min-width: 36px; }
+
+  .mvv-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-top: 1.5rem; }
+
+  .mvv-card {
+    background: var(--off-white);
+    border-radius: var(--radius-sm);
+    padding: 1.1rem;
+    border-left: 3px solid var(--verde);
+  }
+  .mvv-card:nth-child(2) { border-color: var(--azul); }
+  .mvv-card h5 { font-size: .78rem; text-transform: uppercase; letter-spacing: .06em; color: var(--text-muted); margin-bottom: .4rem; }
+  .mvv-card p { font-size: .83rem; color: var(--text); line-height: 1.5; }
+
+  /* ── CONTATO ── */
+  #contato { background: var(--verde-light); }
+
+  .contato-inner {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-items: start;
+  }
+
+  .contato-text .section-title { font-size: clamp(1.6rem, 2.5vw, 2.2rem); }
+
+  .contato-text p {
+    font-size: 1rem;
+    color: var(--text-soft);
+    line-height: 1.7;
+    margin-top: .8rem;
+    font-weight: 300;
+  }
+
+  .contato-options { display: flex; flex-direction: column; gap: .9rem; margin-top: 1.8rem; }
+
+  .contato-btn {
+    display: flex;
+    align-items: center;
+    gap: .9rem;
+    padding: 1rem 1.4rem;
+    border-radius: var(--radius);
+    text-decoration: none;
+    font-weight: 500;
+    font-size: .95rem;
+    transition: transform .2s, box-shadow .2s;
+    box-shadow: var(--shadow);
+  }
+  .contato-btn:hover { transform: translateY(-2px); box-shadow: var(--shadow-hover); }
+
+  .contato-btn.whats { background: #25d366; color: white; }
+  .contato-btn.email { background: white; color: var(--azul); }
+  .contato-btn.insta { background: linear-gradient(135deg, #e1306c, #fd1d1d, #fcb045); color: white; }
+
+  .btn-icon { font-size: 1.2rem; }
+  .btn-text-small { font-size: .78rem; font-weight: 300; opacity: .85; }
+  .btn-text-wrap { display: flex; flex-direction: column; line-height: 1.2; }
+
+  .contato-form {
+    background: white;
+    border-radius: var(--radius);
+    padding: 2rem;
+    box-shadow: var(--shadow);
+  }
+  .contato-form h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: var(--azul);
+    margin-bottom: 1.4rem;
+  }
+
+  .form-group { margin-bottom: 1rem; }
+
+  .form-group label {
+    display: block;
+    font-size: .8rem;
+    font-weight: 500;
+    color: var(--text-soft);
+    margin-bottom: .4rem;
+    letter-spacing: .02em;
+  }
+
+  .form-group input,
+  .form-group select,
+  .form-group textarea {
+    width: 100%;
+    padding: .75rem 1rem;
+    border: 1.5px solid #e8e8e8;
+    border-radius: var(--radius-sm);
+    font-family: 'DM Sans', sans-serif;
+    font-size: .9rem;
+    color: var(--text);
+    background: var(--off-white);
+    transition: border-color .2s;
+    outline: none;
+    resize: vertical;
+  }
+  .form-group input:focus,
+  .form-group select:focus,
+  .form-group textarea:focus { border-color: var(--verde); background: white; }
+
+  .form-submit {
+    width: 100%;
+    padding: .85rem;
+    background: var(--verde);
+    color: white;
+    border: none;
+    border-radius: 50px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: .95rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background .2s, transform .15s;
+    margin-top: .5rem;
+  }
+  .form-submit:hover { background: #1a6641; transform: translateY(-1px); }
+
+  /* ── FAQ ── */
+  #faq { background: white; }
+
+  .faq-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2.5rem; align-items: start; }
+
+  .faq-list { display: flex; flex-direction: column; gap: .7rem; }
+
+  .faq-item {
+    border: 1px solid #eee;
+    border-radius: var(--radius-sm);
+    overflow: hidden;
+  }
+
+  .faq-q {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 1.2rem;
+    cursor: pointer;
+    font-size: .9rem;
+    font-weight: 500;
+    color: var(--azul);
+    gap: 1rem;
+    user-select: none;
+    transition: background .2s;
+  }
+  .faq-q:hover { background: var(--off-white); }
+
+  .faq-arrow {
+    flex-shrink: 0;
+    width: 20px; height: 20px;
+    border-radius: 50%;
+    background: var(--verde-light);
+    color: var(--verde);
+    display: flex; align-items: center; justify-content: center;
+    font-size: .7rem;
+    transition: transform .25s;
+  }
+  .faq-item.open .faq-arrow { transform: rotate(180deg); }
+
+  .faq-a {
+    padding: 0 1.2rem;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height .3s ease, padding .3s;
+    font-size: .875rem;
+    color: var(--text-soft);
+    line-height: 1.65;
+  }
+  .faq-item.open .faq-a { max-height: 300px; padding: 0 1.2rem 1rem; }
+
+  .faq-cta {
+    background: var(--off-white);
+    border-radius: var(--radius);
+    padding: 2rem;
+    position: sticky;
+    top: 90px;
+    border: 1px solid var(--verde-mid);
+  }
+  .faq-cta h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--azul);
+    line-height: 1.25;
+    margin-bottom: .8rem;
+  }
+  .faq-cta p { font-size: .875rem; color: var(--text-soft); margin-bottom: 1.5rem; }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--azul);
+    color: rgba(255,255,255,0.7);
+    padding: 3rem 5% 2rem;
+  }
+  .footer-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1.5fr 1fr 1fr;
+    gap: 2.5rem;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+  }
+
+  .footer-brand p {
+    font-size: .85rem;
+    line-height: 1.65;
+    margin-top: .8rem;
+    max-width: 280px;
+  }
+  .footer-nav-title {
+    font-size: .78rem;
+    text-transform: uppercase;
+    letter-spacing: .08em;
+    color: rgba(255,255,255,0.4);
+    margin-bottom: .8rem;
+  }
+  .footer-links { list-style: none; display: flex; flex-direction: column; gap: .5rem; }
+  .footer-links a { color: rgba(255,255,255,0.65); text-decoration: none; font-size: .875rem; transition: color .2s; }
+  .footer-links a:hover { color: white; }
+
+  .footer-bottom {
+    max-width: 1100px;
+    margin: 1.5rem auto 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: .78rem;
+    color: rgba(255,255,255,0.35);
+  }
+
+  /* ── MOBILE ── */
+  @media (max-width: 900px) {
+    .nav-links { display: none; }
+    .hamburger { display: flex; }
+    nav.menu-open .nav-links {
+      display: flex;
+      flex-direction: column;
+      position: fixed;
+      top: 68px; left: 0; right: 0;
+      background: white;
+      padding: 1.5rem 5%;
+      box-shadow: var(--shadow);
+      gap: 1rem;
+    }
+    .hero-inner { grid-template-columns: 1fr; }
+    .hero-visual { display: none; }
+    .services-grid { grid-template-columns: 1fr; }
+    .pericia-inner { grid-template-columns: 1fr; }
+    .palestras-grid { grid-template-columns: 1fr; }
+    .sobre-inner { grid-template-columns: 1fr; }
+    .contato-inner { grid-template-columns: 1fr; }
+    .faq-grid { grid-template-columns: 1fr; }
+    .footer-inner { grid-template-columns: 1fr; }
+    .mvv-grid { grid-template-columns: 1fr; }
+    section { padding: 60px 5%; }
+  }
+
+  /* ── REVEAL ANIMATION ── */
+  .reveal {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity .6s ease, transform .6s ease;
+  }
+  .reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+    </style>
+
+<!-- NAV -->
+<nav id="mainNav">
+  <a href="#home" class="nav-logo">PlenaPsi<br><span style="font-size:.85rem;font-weight:300;color:var(--text-muted)">Psicologia · Desenvolvimento · Perícia</span></a>
+  <ul class="nav-links">
+    <li><a href="#servicos">Serviços</a></li>
+    <li><a href="#pericia">Perícia</a></li>
+    <li><a href="#palestras">Palestras</a></li>
+    <li><a href="#sobre">Quem somos</a></li>
+    <li><a href="#faq">FAQ</a></li>
+    <li><a href="#contato" class="nav-cta">Fale conosco</a></li>
+  </ul>
+  <button class="hamburger" onclick="toggleMenu()" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- HERO -->
+<section id="home">
+  <div class="hero-inner">
+    <div class="hero-text">
+      <div class="hero-tag">Psicologia com propósito</div>
+      <h1 class="hero-title">
+        Cuidado, clareza<br>e <em>desenvolvimento</em><br>para sua vida
+      </h1>
+      <p class="hero-subtitle">
+        As pessoas querem entender o mundo para agir nele a seu favor. Aqui você encontra apoio e segurança através de conhecimento sólido.
+      </p>
+      <div class="hero-btns">
+        <a href="#contato" class="btn-primary">Agendar conversa</a>
+        <a href="#servicos" class="btn-outline">Conhecer serviços</a>
+      </div>
+    </div>
+
+    <div class="hero-visual">
+      <div class="hero-card">
+        <div class="card-icon green">🌿</div>
+        <div class="card-title">Psicoterapia &amp; Desenvolvimento</div>
+        <div class="card-desc">Escuta qualificada para adultos e adolescentes, presencial ou online</div>
+      </div>
+      <div class="hero-card">
+        <div class="card-icon blue">⚖️</div>
+        <div class="card-title">Perícia Psicológica</div>
+        <div class="card-desc">Perita cadastrada no Tribunal de Justiça de Santa Catarina</div>
+      </div>
+      <div class="hero-card" style="margin-left:0;margin-right:2rem;">
+        <div class="card-icon brown">🎤</div>
+        <div class="card-title">Cursos &amp; Palestras</div>
+        <div class="card-desc">Para empresas, escolas, igrejas e comunidades</div>
+      </div>
+    </div>
+  </div>
 </section>
 
-<section class="servicos">
-<h2>Nossos Serviços</h2>
-<div class="servicos-container">
-<div class="card">
-<i class="fa-solid fa-brain"></i>
-<h3>Psicologia Clínica</h3>
-<p>
-Atendimento psicológico individual focado no desenvolvimento emocional e bem-estar.
-</p>
-</div>
-<div class="card">
-<i class="fa-solid fa-scale-balanced"></i>
-<h3>Perícia Psicológica</h3>
-<p>
-Avaliações psicológicas técnicas para processos judiciais e administrativos.
-</p>
-</div>
-<div class="card">
-<i class="fa-solid fa-chalkboard-user"></i>
-<h3>Cursos e Palestras</h3>
-<p>
-Capacitação e desenvolvimento humano para empresas, escolas e profissionais.
-</p>
-</div>
-</div>
+<!-- SERVIÇOS -->
+<section id="servicos">
+  <div class="container">
+    <div class="services-header reveal">
+      <div class="section-label">O que oferecemos</div>
+      <h2 class="section-title">Serviços integrados para o<br>desenvolvimento humano</h2>
+      <p class="section-subtitle">Cada serviço é pensado para acolher pessoas em diferentes momentos da vida, com rigor técnico e cuidado humano.</p>
+    </div>
+    <div class="services-grid">
+      <div class="service-card reveal">
+        <div class="service-icon" style="background:var(--verde-light)">🌿</div>
+        <h3>Psicoterapia</h3>
+        <p>Atendimento clínico individual para adolescentes e adultos. Espaço seguro de escuta, reflexão e crescimento pessoal.</p>
+      </div>
+      <div class="service-card reveal" style="transition-delay:.1s">
+        <div class="service-icon" style="background:var(--azul-light)">📋</div>
+        <h3>Avaliação Psicológica</h3>
+        <p>Elaboração de documentos técnicos com metodologia científica rigorosa para diferentes contextos e finalidades.</p>
+      </div>
+      <div class="service-card reveal" style="transition-delay:.2s">
+        <div class="service-icon" style="background:#f0eaf5">⚖️</div>
+        <h3>Perícia Psicológica</h3>
+        <p>Laudos técnicos para o sistema de Justiça. Assistência técnica às partes em processos judiciais.</p>
+      </div>
+      <div class="service-card reveal" style="transition-delay:.05s">
+        <div class="service-icon" style="background:var(--marrom-light)">🎤</div>
+        <h3>Cursos &amp; Palestras</h3>
+        <p>Programas de desenvolvimento emocional para empresas, escolas, igrejas e grupos comunitários.</p>
+      </div>
+      <div class="service-card reveal" style="transition-delay:.15s">
+        <div class="service-icon" style="background:#fff8e6">✨</div>
+        <h3>Autoconhecimento</h3>
+        <p>Programas de fortalecimento de vínculos e desenvolvimento pessoal adaptados às necessidades de cada grupo.</p>
+      </div>
+      <div class="service-card reveal" style="transition-delay:.25s">
+        <div class="service-icon" style="background:var(--verde-light)">📚</div>
+        <h3>Literatura &amp; Conteúdo</h3>
+        <p>Materiais de qualidade sobre saúde mental, desenvolvimento e bem-estar para ampliar o conhecimento.</p>
+      </div>
+    </div>
+  </div>
 </section>
 
-<section class="about">
-
-<div class="about-container" data-aos="fade-up">
-
-<div class="about-text">
-
-<h2>O que é a PlenaPsi?</h2>
-
-<p>
-Fundada pela psicóloga Luciana Santos (CRP 12/25351), a PlenaPsi
-integra conhecimento científico da Psicologia com práticas de
-reflexão e autoconhecimento.
-</p>
-
-<p>
-Oferecemos atendimentos clínicos, avaliações psicológicas,
-perícias e programas de desenvolvimento humano para pessoas,
-famílias, empresas e instituições.
-</p>
-
-<p>
-Nosso propósito é oferecer um espaço de escuta qualificada,
-apoio emocional e desenvolvimento pessoal para que cada pessoa
-possa encontrar mais clareza, autonomia e sentido em sua vida.
-</p>
-
-</div>
-
-<div class="about-values">
-
-<div class="value-box">
-<h3>Missão</h3>
-<p>Promover desenvolvimento humano e saúde mental com ciência, ética e acolhimento.</p>
-</div>
-
-<div class="value-box">
-<h3>Visão</h3>
-<p>Tornar-se referência regional em desenvolvimento humano até 2028.</p>
-</div>
-
-<div class="value-box">
-<h3>Valores</h3>
-<p>Acolhimento, ética, sabedoria, confiança e respeito ao ser humano.</p>
-</div>
-
-</div>
-
-</div>
-
+<!-- PERÍCIA -->
+<section id="pericia">
+  <div class="container">
+    <div class="pericia-inner">
+      <div class="reveal">
+        <div class="pericia-badge">⚖️ Tribunal de Justiça/SC</div>
+        <div class="section-label" style="color:rgba(255,255,255,0.5)">Área jurídica</div>
+        <h2 class="section-title">Perícia Psicológica e Assistência Técnica</h2>
+        <p class="section-subtitle" style="color:rgba(255,255,255,0.75);margin-top:.8rem">
+          Trabalho técnico especializado para o sistema de Justiça, pautado por rigor científico, ética profissional e clareza na comunicação com o judiciário.
+        </p>
+        <ul class="pericia-list">
+          <li>Disputas de guarda e convivência familiar</li>
+          <li>Investigação de alienação parental</li>
+          <li>Análise de danos psicológicos no trabalho</li>
+          <li>Avaliação de vínculos e capacidade psicológica</li>
+          <li>Elaboração de quesitos técnicos</li>
+          <li>Orientação técnica ao advogado e à parte</li>
+        </ul>
+        <div style="margin-top:2rem">
+          <a href="#contato" class="btn-primary">Solicitar orçamento</a>
+        </div>
+      </div>
+      <div class="pericia-cards reveal" style="transition-delay:.15s">
+        <div class="pericia-info-card">
+          <h4>Quem pode contratar</h4>
+          <p>Advogados, escritórios jurídicos, empresas e pessoas físicas envolvidas em processos judiciais que demandem análise psicológica.</p>
+        </div>
+        <div class="pericia-info-card">
+          <h4>Modalidades</h4>
+          <p>Atendimento presencial e online, conforme a natureza do caso e as exigências do processo.</p>
+        </div>
+        <div class="pericia-info-card">
+          <h4>Assistente técnica das partes</h4>
+          <p>Análise crítica de laudos periciais, elaboração de pareceres e acompanhamento técnico do processo pericial para garantir clareza e representação adequada.</p>
+        </div>
+      </div>
+    </div>
+  </div>
 </section>
 
-<section class="testimonials" data-aos="zoom-in">
+<!-- PALESTRAS -->
+<section id="palestras">
+  <div class="container">
+    <div class="reveal">
+      <div class="section-label">Formação &amp; capacitação</div>
+      <h2 class="section-title">Cursos, Palestras e Treinamentos</h2>
+      <p class="section-subtitle">Atividades construídas a partir da Psicologia científica aliada à experiência prática, criando espaços de diálogo, crescimento e fortalecimento de vínculos.</p>
+    </div>
 
-<h2>O que as pessoas dizem</h2>
+    <div class="palestras-grid">
+      <div>
+        <div class="format-cards reveal">
+          <div class="format-card">
+            <div class="format-icon" style="background:var(--verde-light)">🎤</div>
+            <div>
+              <h4>Palestras</h4>
+              <p>Apresentações educativas e inspiradoras sobre saúde emocional, relações humanas e bem-estar para eventos e instituições.</p>
+            </div>
+          </div>
+          <div class="format-card">
+            <div class="format-icon" style="background:var(--azul-light)">📖</div>
+            <div>
+              <h4>Cursos e Treinamentos</h4>
+              <p>Programas estruturados em módulos, com conteúdo teórico e atividades práticas para desenvolvimento de competências.</p>
+            </div>
+          </div>
+          <div class="format-card">
+            <div class="format-icon" style="background:var(--marrom-light)">🔄</div>
+            <div>
+              <h4>Rodas de Conversa</h4>
+              <p>Espaços de diálogo e reflexão coletiva sobre experiências humanas, favorecendo escuta e construção de novos sentidos.</p>
+            </div>
+          </div>
+        </div>
 
-<div class="testimonials-container">
+        <div class="publicos-wrap reveal">
+          <div class="publicos-title">Para quem é indicado</div>
+          <div class="publicos-row">
+            <span class="publico-tag">🏫 Escolas</span>
+            <span class="publico-tag">🏢 Empresas</span>
+            <span class="publico-tag">⛪ Igrejas</span>
+            <span class="publico-tag">🤝 Comunidades</span>
+            <span class="publico-tag">👥 Grupos pessoais</span>
+            <span class="publico-tag">👤 Individual</span>
+          </div>
+        </div>
 
-<div class="testimonial-card">
+        <div style="margin-top:2rem" class="reveal">
+          <a href="#contato" class="btn-primary">Solicitar proposta personalizada</a>
+        </div>
+      </div>
 
-<p>
-“A psicoterapia me ajudou a compreender melhor minhas emoções
-e encontrar equilíbrio em momentos difíceis.”
-</p>
-
-<h4>— Cliente</h4>
-
-</div>
-
-<div class="testimonial-card">
-
-<p>
-“O trabalho da PlenaPsi trouxe clareza e segurança em um
-momento importante da minha vida.”
-</p>
-
-<h4>— Paciente</h4>
-
-</div>
-
-<div class="testimonial-card">
-
-<p>
-“Os encontros e palestras foram muito enriquecedores
-para nossa equipe.”
-</p>
-
-<h4>— Participante</h4>
-
-</div>
-
-</div>
-
+      <div class="topics-box reveal" style="transition-delay:.2s">
+        <h3>Temas frequentes</h3>
+        <div>
+          <span class="topic-pill">Saúde emocional</span>
+          <span class="topic-pill">Prevenção do estresse</span>
+          <span class="topic-pill">Habilidades sociais</span>
+          <span class="topic-pill">Comunicação</span>
+          <span class="topic-pill">Resolução de conflitos</span>
+          <span class="topic-pill">Autoconhecimento</span>
+          <span class="topic-pill">Propósito de vida</span>
+          <span class="topic-pill">Maturidade emocional</span>
+          <span class="topic-pill">Escolhas profissionais</span>
+          <span class="topic-pill">Relações familiares</span>
+          <span class="topic-pill">Educação de filhos</span>
+          <span class="topic-pill">Bem-estar feminino</span>
+          <span class="topic-pill">Adolescentes</span>
+          <span class="topic-pill">Desenvolvimento pessoal</span>
+        </div>
+        <p class="topics-note">Outros temas podem ser desenvolvidos conforme a necessidade do grupo ou instituição.</p>
+        <div style="margin-top:1.2rem;padding-top:1rem;border-top:1px solid #eee">
+          <div style="display:flex;flex-wrap:wrap;gap:.5rem;font-size:.8rem;color:var(--text-muted)">
+            <span>✔ Presencial ou online</span>
+            <span>✔ Personalizado</span>
+            <span>✔ Encontro único ou continuado</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </section>
 
-<section class="contact">
+<!-- QUEM SOMOS -->
+<section id="sobre">
+  <div class="container">
+    <div class="sobre-inner">
+      <div class="reveal">
+        <div class="sobre-photo-placeholder"> <img src="/static/img/WhatsApp Image 2026-03-31 at 15.53.30.jpeg" alt=""></div>
+      </div>
+      <div class="reveal" style="transition-delay:.15s">
+        <div class="section-label">Quem somos</div>
+        <div class="crp-badge">CRP 12/25351</div>
+        <h2 class="section-title">Luciana Santos</h2>
+        <p class="sobre-bio">
+          Psicóloga Clínica e Organizacional, perita cadastrada no Tribunal de Justiça de Santa Catarina. Casada há 25 anos, mãe de 3 jovens, escritora, conselheira e educadora — apaixonada por pessoas e especialista em transtornos de humor, adolescências e vida profissional.
+        </p>
+        <p class="sobre-bio" style="margin-top:.8rem">
+          A psicologia entrou na sua vida aos 15 anos, e desde então nunca mais se afastou dessa paixão. Ao longo dos anos, a curiosidade a levou a explorar contabilidade, sociologia, teologia e, finalmente, a psicologia se tornou sua verdadeira vocação.
+        </p>
 
-<h2>Vamos conversar?</h2>
+        <div class="formacoes">
+          <div class="formacoes-title">Formação</div>
+          <div class="formacao-item"><span class="formacao-year">2000</span> Contabilidade — SENAC</div>
+          <div class="formacao-item"><span class="formacao-year">2008</span> Sociologia e Política — FESPSP</div>
+          <div class="formacao-item"><span class="formacao-year">2010</span> Teologia — ECAP</div>
+          <div class="formacao-item"><span class="formacao-year">2016</span> Psicologia — UNIVALI</div>
+          <div class="formacao-item"><span class="formacao-year">Pós</span> Avaliação Psicológica &amp; Psicologia Jurídica</div>
+          <div class="formacao-item"><span class="formacao-year">MBA</span> Gerenciamento Executivo de Projetos</div>
+        </div>
 
-<p>
-Se você deseja saber mais sobre os atendimentos, cursos ou
-serviços da PlenaPsi, entre em contato. Será um prazer conversar com você.
-</p>
+        <div class="mvv-grid">
+          <div class="mvv-card">
+            <h5>Missão</h5>
+            <p>Oferecer experiências de desenvolvimento humano integrando ciência ao conhecimento prático para promover transformações reais.</p>
+          </div>
+          <div class="mvv-card">
+            <h5>Visão</h5>
+            <p>Tornar-se referência regional em saúde mental e desenvolvimento humano em contextos variados até 2028.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
-<div class="contact-buttons">
+<!-- FAQ -->
+<section id="faq">
+  <div class="container">
+    <div class="faq-grid">
+      <div>
+        <div class="reveal" style="margin-bottom:2rem">
+          <div class="section-label">Dúvidas frequentes</div>
+          <h2 class="section-title">Perguntas<br>Frequentes</h2>
+        </div>
+        <div class="faq-list reveal">
+          <div class="faq-item">
+            <div class="faq-q" onclick="toggleFaq(this)">
+              Atende presencialmente ou apenas online?
+              <span class="faq-arrow">▾</span>
+            </div>
+            <div class="faq-a">Atende presencialmente na região do Vale do Itajaí/SC e online para todo o Brasil. A modalidade é definida conforme a natureza do serviço e a preferência do cliente.</div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-q" onclick="toggleFaq(this)">
+              O que é a assistência técnica em perícia psicológica?
+              <span class="faq-arrow">▾</span>
+            </div>
+            <div class="faq-a">É a atuação da psicóloga em favor de uma das partes no processo judicial. Inclui análise crítica do laudo pericial, elaboração de parecer técnico, formulação de quesitos e orientação ao advogado e à parte envolvida, garantindo maior clareza técnica no processo.</div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-q" onclick="toggleFaq(this)">
+              Para quem se destinam os programas de palestras?
+              <span class="faq-arrow">▾</span>
+            </div>
+            <div class="faq-a">As atividades são adaptadas para escolas (alunos, professores e famílias), empresas (equipes e lideranças), igrejas, associações e grupos comunitários. Cada proposta é personalizada conforme o perfil e os objetivos do grupo.</div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-q" onclick="toggleFaq(this)">
+              A psicoterapia é indicada para adolescentes?
+              <span class="faq-arrow">▾</span>
+            </div>
+            <div class="faq-a">Sim. A PlenaPsi oferece atendimento clínico tanto para adolescentes quanto para adultos, com abordagem específica para cada fase do desenvolvimento humano.</div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-q" onclick="toggleFaq(this)">
+              Como solicitar uma palestra ou treinamento para minha empresa?
+              <span class="faq-arrow">▾</span>
+            </div>
+            <div class="faq-a">Entre em contato pelo WhatsApp (47) 98841-0744 ou pelo e-mail lucianasantos@plenapsi.com.br. Após entender as necessidades do grupo ou instituição, é elaborada uma proposta personalizada.</div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-q" onclick="toggleFaq(this)">
+              Quero contratar um serviço, como devo fazer?
+              <span class="faq-arrow">▾</span>
+            </div>
+            <div class="faq-a">Faça contato pelo WhatsApp (47) 98841-0744 ou pelo formulário neste site. Estamos abertos ao diálogo com parceiros, clientes, pacientes, futuros alunos e novos amigos.</div>
+          </div>
+        </div>
+      </div>
 
-<a href="https://wa.me/5547988410744" class="btn-whatsapp">
-Falar no WhatsApp
+      <div class="faq-cta reveal" style="transition-delay:.2s">
+        <h3>Ainda tem dúvidas? Vamos conversar!</h3>
+        
+        <p>Estou aberta ao diálogo. Entre em contato sem compromisso — adoro compartilhar conhecimento e encontrar a melhor forma de ajudar.</p>
+        <a href="https://wa.me/5547988410744" 
+   class="btn btn-success d-inline-flex align-items-center gap-2 px-4 py-2" 
+   target="_blank">
+
+  <i class="fa-brands fa-whatsapp"></i>
+  Me chama no WhatsApp
+</a>
+        </a>
+        <div style="margin-top:1.5rem;padding-top:1.5rem;border-top:1px solid var(--verde-mid)">
+          <div style="font-size:.82rem;color:var(--text-muted);margin-bottom:.6rem;font-weight:500;text-transform:uppercase;letter-spacing:.05em">Valores centrais</div>
+          <div style="display:flex;flex-wrap:wrap;gap:.4rem">
+            <span class="topic-pill">Acolhimento</span>
+            <span class="topic-pill">Ética</span>
+            <span class="topic-pill">Qualidade</span>
+            <span class="topic-pill">Sigilo</span>
+            <span class="topic-pill">Confiança</span>
+            <span class="topic-pill">Resultados reais</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTATO -->
+<section id="contato">
+  <div class="container">
+     <div class="contato-inner">
+      <div class="reveal">
+        <div class="section-label">Fale conosco</div>
+        <h2 class="section-title">Vamos caminhar juntos</h2>
+        <p>A vida não precisa ser um peso. Nessa era agitada, busque o apoio necessário para você, seu familiar, sua escola ou empresa.</p>
+
+<div class="contato-options d-flex flex-column gap-3">
+
+  <!-- WhatsApp -->
+  <a href="https://wa.me/5547988410744" target="_blank"
+     class="btn btn-success btn-lg d-flex align-items-center gap-3 text-start">
+    <i class="fa-brands fa-whatsapp fs-4"></i>
+    <div class="d-flex flex-column">
+      <span>WhatsApp</span>
+      <small class="text-white-50">(47) 98841-0744</small>
+    </div>
+  </a>
+
+  <!-- Email -->
+  <a href="mailto:lucianasantos@plenapsi.com.br"
+     class="btn btn-light btn-lg d-flex align-items-center gap-3 text-start border">
+    <i class="fa-solid fa-envelope fs-4"></i>
+    <div class="d-flex flex-column">
+      <span>E-mail</span>
+      <small class="text-muted">lucianasantos@plenapsi.com.br</small>
+    </div>
+  </a>
+
+  <!-- Instagram -->
+  <a href="https://instagram.com/LucianaSantos.Lueduca" target="_blank"
+     class="btn btn-danger btn-lg d-flex align-items-center gap-3 text-start">
+    <i class="fa-brands fa-instagram fs-4"></i>
+    <div class="d-flex flex-column">
+      <span>Instagram</span>
+      <small class="text-white-50">@LucianaSantos.Lueduca</small>
+    </div>
 </a>
 
-<a href="mailto:lucianasantos@Plenapsi.com.br" class="btn-email">
-Enviar Email
-</a>
-
-</div>
-
-<div class="contact-info">
-
-<p><strong>WhatsApp:</strong> (47) 98841-0744</p>
-
-<p><strong>Email:</strong> lucianasantos@Plenapsi.com.br</p>
-
-<p><strong>Instagram:</strong> @LucianaSantos.Lueduca</p>
-
-</div>
-
+      <div class="contato-form reveal" style="transition-delay:.15s">
+        <h3>Envie uma mensagem</h3>
+        <div class="form-group">
+          <label>Nome completo</label>
+          <input type="text" placeholder="Como posso te chamar?">
+        </div>
+        <div class="form-group">
+          <label>E-mail ou WhatsApp</label>
+          <input type="text" placeholder="Para retornar o contato">
+        </div>
+        <div class="form-group">
+          <label>Serviço de interesse</label>
+          <select>
+            <option value="">Selecione...</option>
+            <option>Psicoterapia</option>
+            <option>Avaliação Psicológica</option>
+            <option>Perícia Psicológica</option>
+            <option>Assistência Técnica</option>
+            <option>Palestra / Curso / Treinamento</option>
+            <option>Roda de Conversa</option>
+            <option>Outro</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Mensagem</label>
+          <textarea rows="3" placeholder="Conte um pouco sobre o que você precisa..."></textarea>
+        </div>
+        <button class="form-submit" onclick="handleSubmit()">Enviar mensagem →</button>
+      </div>
+    </div>
+  </div>
 </section>
 
-<footer class="footer">
-
-<div class="footer-container">
-
-<div class="footer-logo">
-
-<h3>PlenaPsi</h3>
-
-<p>
-Psicologia, Desenvolvimento e Perícia.
-Promovendo saúde emocional e desenvolvimento humano.
-</p>
-
-</div>
-
-<div class="footer-links">
-
-<h4>Links</h4>
-
-<ul>
-
-<li><a href="#">Início</a></li>
-<li><a href="#">Psicologia Clínica</a></li>
-<li><a href="#">Perícia Psicológica</a></li>
-<li><a href="#">Cursos e Palestras</a></li>
-<li><a href="#">Contato</a></li>
-
-</ul>
-
-</div>
-
-<div class="footer-contact">
-
-<h4>Contato</h4>
-
-<p>WhatsApp: (47) 98841-0744</p>
-
-<p>Email: lucianasantos@Plenapsi.com.br</p>
-
-<p>Instagram: @LucianaSantos.Lueduca</p>
-
-</div>
-
-</div>
-
-<div class="footer-bottom">
-
-<p>© 2026 PlenaPsi - Todos os direitos reservados</p>
-
-</div>
-
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <div class="nav-logo" style="color:white">PlenaPsi<br><span style="font-size:.85rem;font-weight:300;color:rgba(255,255,255,0.4)">Psicologia · Desenvolvimento · Perícia</span></div>
+      <p>Fundada pela psicóloga Luciana Santos (CRP 12/25351). Referência em saúde mental, desenvolvimento humano e perícia psicológica no Vale do Itajaí/SC.</p>
+    </div>
+    <div>
+      <div class="footer-nav-title">Serviços</div>
+      <ul class="footer-links">
+        <li><a href="#servicos">Psicoterapia</a></li>
+        <li><a href="#pericia">Perícia Psicológica</a></li>
+        <li><a href="#palestras">Cursos e Palestras</a></li>
+        <li><a href="#servicos">Avaliação Psicológica</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-nav-title">Links</div>
+      <ul class="footer-links">
+        <li><a href="#sobre">Quem somos</a></li>
+        <li><a href="#faq">Perguntas Frequentes</a></li>
+        <li><a href="#contato">Contato</a></li>
+        <li><a href="https://lueducaonlinepsicologiaesociologia.wordpress.com/" target="_blank">Blog</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2026 PlenaPsi – Psicologia, Desenvolvimento e Perícia. Todos os direitos reservados.</span>
+    <span>plenapsipericias.com.br</span>
+  </div>
 </footer>
 
-<a href="https://wa.me/5547988410744" 
-class="whatsapp-float" 
-target="_blank">
-
-💬
-
-</a>
-
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-
-<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-
 <script>
-AOS.init();
+  // Scroll nav shadow
+  window.addEventListener('scroll', () => {
+    document.getElementById('mainNav').classList.toggle('scrolled', window.scrollY > 10);
+  });
+
+  // Mobile menu
+  function toggleMenu() {
+    document.getElementById('mainNav').classList.toggle('menu-open');
+  }
+  document.querySelectorAll('.nav-links a').forEach(a => {
+    a.addEventListener('click', () => document.getElementById('mainNav').classList.remove('menu-open'));
+  });
+
+  // FAQ
+  function toggleFaq(el) {
+    const item = el.parentElement;
+    const isOpen = item.classList.contains('open');
+    document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+    if (!isOpen) item.classList.add('open');
+  }
+
+  // Reveal on scroll
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+  // Form submit
+  function handleSubmit() {
+    const btn = document.querySelector('.form-submit');
+    btn.textContent = '✓ Mensagem enviada!';
+    btn.style.background = '#1a6641';
+    setTimeout(() => { btn.textContent = 'Enviar mensagem →'; btn.style.background = ''; }, 3000);
+  }
 </script>
-
-<script src="{% static 'JS/script.js' %}"></script>
-
 </body>
-
-
 </html>
