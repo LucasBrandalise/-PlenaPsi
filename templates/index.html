@@ -2,7 +2,7 @@
 <html lang="pt-BR">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=80%">
 <title>PlenaPsi – Psicologia, Desenvolvimento e Perícia</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
@@ -14,17 +14,17 @@
     <style>
         
   :root {
-    --verde: #207d50;
-    --verde-light: #e8f5ee;
-    --verde-mid: #b8dfc8;
-    --azul: #0c2372;
-    --azul-light: #e8ecf7;
-    --marrom: #6b3509;
+    --verde: #008925;
+    --verde-light: 
+    --bege: #f0f9f4;
+    --azul: #004f6c;
+    --azul-light:#004945;
+    --marrom: #E08800;
     --marrom-light: #f5ede6;
     --off-white: #fafaf7;
     --white: #ffffff;
     --text: #1a1a1a;
-    --text-soft: #5a5a5a;
+    --text-soft:#9a9a9a;
     --text-muted: #9a9a9a;
     --radius: 16px;
     --radius-sm: 8px;
@@ -38,7 +38,7 @@
 
   body {
     font-family: 'DM Sans', sans-serif;
-    background: var(--off-white);
+    background: var(--bege);
     color: var(--text);
     line-height: 1.65;
     font-size: 16px;
@@ -95,7 +95,7 @@
     font-weight: 500 !important;
     transition: background .2s, transform .1s !important;
   }
-  .nav-cta:hover { background: #1a6641 !important; transform: translateY(-1px); }
+  .nav-cta:hover { background: #1a664166 !important; transform: translateY(-1px); }
 
   .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; border: none; background: none; padding: 4px; }
   .hamburger span { display: block; width: 22px; height: 2px; background: var(--text); border-radius: 2px; transition: .3s; }
@@ -108,7 +108,7 @@
   #home {
     padding-top: 130px;
     padding-bottom: 90px;
-    background: linear-gradient(160deg, #f0f9f4 0%, var(--off-white) 60%);
+    background: linear-gradient(160deg, #9bffc888 0%, var(--bege) 60%);
     position: relative;
     overflow: hidden;
   }
@@ -266,7 +266,7 @@
   }
 
   /* ── SERVIÇOS ── */
-  #servicos { background: white; }
+  #servicos {background: linear-gradient(160deg, var(--bege) 0%,#9bffc888 190%); }
 
   .services-header { margin-bottom: 3rem; }
 
@@ -307,7 +307,7 @@
   .service-card p { font-size: .875rem; color: var(--text-soft); line-height: 1.6; }
 
   /* ── PERÍCIA ── */
-  #pericia { background: var(--azul); color: white; }
+  #pericia {background: linear-gradient(160deg, var(--azul-light) 100%,#9bffc888 0%); }
 
   .pericia-inner {
     display: grid;
@@ -472,7 +472,7 @@
     display: flex;
     align-items: center;
     gap: .4rem;
-    background: var(--azul-light);
+    background: var(--white);
     color: var(--azul);
     font-size: .82rem;
     font-weight: 500;
@@ -481,7 +481,7 @@
   }
 
   /* ── QUEM SOMOS ── */
-  #sobre { background: white; }
+  #sobre { background: var(--azul-light); }
 
   .sobre-inner {
     display: grid;
@@ -564,10 +564,9 @@
   #contato { background: var(--verde-light); }
 
   .contato-inner {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 3rem;
-    align-items: start;
+   display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 3rem;
   }
 
   .contato-text .section-title { font-size: clamp(1.6rem, 2.5vw, 2.2rem); }
@@ -1060,8 +1059,9 @@
           <div class="formacao-item"><span class="formacao-year">2008</span> Sociologia e Política — FESPSP</div>
           <div class="formacao-item"><span class="formacao-year">2010</span> Teologia — ECAP</div>
           <div class="formacao-item"><span class="formacao-year">2016</span> Psicologia — UNIVALI</div>
-          <div class="formacao-item"><span class="formacao-year">Pós</span> Avaliação Psicológica &amp; Psicologia Jurídica</div>
+          <div class="formacao-item"><span class="formacao-year">Pós</span> Avaliação Psicológica &amp;</div>
           <div class="formacao-item"><span class="formacao-year">MBA</span> Gerenciamento Executivo de Projetos</div>
+          <div class="formacao-item"><span class="formacao-year">Pós</span> Psicologia Jurídica</div>
         </div>
 
         <div class="mvv-grid">

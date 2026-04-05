@@ -1,22 +1,29 @@
+:root {
+  /* Base */
+  --verde: #2f7a5f;
+  --verde-soft: #e4f3ec;
+  --verde-deep: #1f5a45;
 
-  :root {
-    --verde: #207d50;
-    --verde-light: #e8f5ee;
-    --verde-mid: #b8dfc8;
-    --azul: #0c2372;
-    --azul-light: #e8ecf7;
-    --marrom: #6b3509;
-    --marrom-light: #f5ede6;
-    --off-white: #fafaf7;
-    --white: #ffffff;
-    --text: #1a1a1a;
-    --text-soft: #5a5a5a;
-    --text-muted: #9a9a9a;
-    --radius: 16px;
-    --radius-sm: 8px;
-    --shadow: 0 2px 24px rgba(0,0,0,0.06);
-    --shadow-hover: 0 8px 40px rgba(0,0,0,0.10);
-  }
+  --azul: #1f2f5a;
+  --azul-soft: #eef1f7;
+
+  --bege: #f4f1ea;
+  --bege-2: #ece7de;
+
+  --white: #ffffff;
+
+  /* Texto */
+  --text: #1c1c1c;
+  --text-soft: #5f5f5f;
+  --text-muted: #9b9b9b;
+
+  /* UI */
+  --radius: 16px;
+  --radius-sm: 8px;
+
+  --shadow: 0 4px 30px rgba(0,0,0,0.05);
+  --shadow-hover: 0 10px 40px rgba(0,0,0,0.08);
+}
 
   * { margin: 0; padding: 0; box-sizing: border-box; }
 
@@ -24,7 +31,7 @@
 
   body {
     font-family: 'DM Sans', sans-serif;
-    background: var(--off-white);
+    background: var(--bege);
     color: var(--text);
     line-height: 1.65;
     font-size: 16px;
@@ -40,8 +47,8 @@
     justify-content: space-between;
     padding: 0 5%;
     height: 68px;
-    background: rgba(250,250,247,0.88);
-    backdrop-filter: blur(14px);
+    background: rgba(244,241,234,0.85);
+    backdrop-filter: blur(18px);
     border-bottom: 1px solid rgba(32,125,80,0.10);
     transition: box-shadow .3s;
   }
@@ -94,7 +101,7 @@
   #home {
     padding-top: 130px;
     padding-bottom: 90px;
-    background: linear-gradient(160deg, #f0f9f4 0%, var(--off-white) 60%);
+    background: linear-gradient(160deg, #00d55e 0%, var(--bege) 60%);
     position: relative;
     overflow: hidden;
   }
@@ -166,7 +173,7 @@
   .hero-btns { display: flex; gap: 1rem; flex-wrap: wrap; }
 
   .btn-primary {
-    background: var(--verde);
+    background: linear-gradient(135deg, var(--verde), var(--verde-deep));
     color: white;
     padding: .75rem 1.8rem;
     border-radius: 50px;
@@ -252,7 +259,7 @@
   }
 
   /* ── SERVIÇOS ── */
-  #servicos { background: white; }
+  #servicos { background:linear-gradient(135deg, #00d55e 0%, var(--bege) 100%); }
 
   .services-header { margin-bottom: 3rem; }
 
@@ -458,8 +465,7 @@
     display: flex;
     align-items: center;
     gap: .4rem;
-    background: var(--azul-light);
-    color: var(--azul);
+    background-color: var(--off-white);
     font-size: .82rem;
     font-weight: 500;
     padding: .4rem .9rem;
