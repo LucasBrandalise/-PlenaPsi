@@ -246,7 +246,7 @@
     font-family: 'Cormorant Garamond', serif;
     font-size: clamp(1.8rem, 3vw, 2.6rem);
     font-weight: 600;
-    color: var(--azul);
+    color: #f0f0f0;
     line-height: 1.2;
     margin-bottom: 1rem;
   }
@@ -805,3 +805,7 @@
     opacity: 1;
     transform: translateY(0);
   }
+img {
+  max-width: 100%;
+  height: auto;
+}

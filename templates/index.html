@@ -2,7 +2,7 @@
 <html lang="pt-BR">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=80%">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>PlenaPsi – Psicologia, Desenvolvimento e Perícia</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
@@ -74,6 +74,7 @@
 
   .nav-links {
     display: flex;
+    font-size: 1.1rem;
     gap: 2rem;
     list-style: none;
   }
@@ -133,7 +134,7 @@
 
   .hero-inner {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 4rem;
     align-items: center;
     max-width: 1100px;
@@ -156,6 +157,8 @@
   }
   .hero-tag::before { content: '●'; font-size: .5rem; }
 
+  @media (max-width: 600px) {
+    
   .hero-title {
     font-family: 'Cormorant Garamond', serif;
     font-size: clamp(2.4rem, 4vw, 3.6rem);
@@ -177,7 +180,12 @@
     max-width: 440px;
   }
 
-  .hero-btns { display: flex; gap: 1rem; flex-wrap: wrap; }
+  .hero-btns { 
+    
+    flex-direction: column;
+    align-items: flex-start;
+    display: flex; gap: 1rem; flex-wrap: wrap;
+   }
 
   .btn-primary {
     background: var(--verde);
@@ -189,6 +197,8 @@
     text-decoration: none;
     transition: background .2s, transform .15s, box-shadow .2s;
     box-shadow: 0 4px 16px rgba(32,125,80,0.25);
+    width: 100%;
+    text-align: center; 
   }
   .btn-primary:hover { background: #1a6641; transform: translateY(-2px); box-shadow: 0 6px 24px rgba(32,125,80,0.30); }
 
@@ -253,7 +263,7 @@
     font-family: 'Cormorant Garamond', serif;
     font-size: clamp(1.8rem, 3vw, 2.6rem);
     font-weight: 600;
-    color: var(--azul);
+    color: #f0eaf5;
     line-height: 1.2;
     margin-bottom: 1rem;
   }
@@ -275,7 +285,7 @@
     grid-template-columns: repeat(3, 1fr);
     gap: 1.5rem;
   }
-
+@media (max-width: 900px) {
   .service-card {
     background: var(--off-white);
     border-radius: var(--radius);
@@ -311,7 +321,7 @@
 
   .pericia-inner {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 4rem;
     align-items: start;
   }
@@ -384,7 +394,7 @@
 
   .palestras-grid {
     display: grid;
-    grid-template-columns: 1fr 1.2fr;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 3rem;
     align-items: start;
     margin-top: 2.5rem;
@@ -485,7 +495,7 @@
 
   .sobre-inner {
     display: grid;
-    grid-template-columns: 1fr 1.4fr;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 4rem;
     align-items: start;
   }
@@ -603,12 +613,20 @@
   .btn-text-small { font-size: .78rem; font-weight: 300; opacity: .85; }
   .btn-text-wrap { display: flex; flex-direction: column; line-height: 1.2; }
 
-  .contato-form {
+  @media (max-width: 900px) {
+  .contato-form
     background: white;
     border-radius: var(--radius);
     padding: 2rem;
     box-shadow: var(--shadow);
   }
+ .form-group input,
+  .form-group textarea,
+  .form-group select {
+    font-size: 1rem;
+  }
+  }
+
   .contato-form h3 {
     font-family: 'Cormorant Garamond', serif;
     font-size: 1.3rem;
@@ -1241,7 +1259,7 @@
   <div class="footer-inner">
     <div class="footer-brand">
       <div class="nav-logo" style="color:white">PlenaPsi<br><span style="font-size:.85rem;font-weight:300;color:rgba(255,255,255,0.4)">Psicologia · Desenvolvimento · Perícia</span></div>
-      <p>Fundada pela psicóloga Luciana Santos (CRP 12/25351). Referência em saúde mental, desenvolvimento humano e perícia psicológica no Vale do Itajaí/SC.</p>
+      <p>Fundada pela psicóloga Luciana Santos (CRP 12/25351) CNPJ 61.927.899/0001-87. Referência em saúde mental, desenvolvimento humano e perícia psicológica no Vale do Itajaí/SC.</p>
     </div>
     <div>
       <div class="footer-nav-title">Serviços</div>
