@@ -1,820 +1,17 @@
- {% load static %}
+{% load static %}
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=80%">
-<title>PlenaPsi – Psicologia, Desenvolvimento e Perícia</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="{% static 'style.css' %}">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PlenaPsi – Psicologia, Desenvolvimento e Perícia</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{% static 'style.css' %}">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
-    <style>
-        
-  :root {
-    --verde: #008925;
-    --verde-light: 
-    --bege: #f0f9f4;
-    --azul: #004f6c;
-    --azul-light:#004945;
-    --marrom: #E08800;
-    --marrom-light: #f5ede6;
-    --off-white: #fafaf7;
-    --white: #ffffff;
-    --text: #1a1a1a;
-    --text-soft:#9a9a9a;
-    --text-muted: #9a9a9a;
-    --radius: 16px;
-    --radius-sm: 8px;
-    --shadow: 0 2px 24px rgba(0,0,0,0.06);
-    --shadow-hover: 0 8px 40px rgba(0,0,0,0.10);
-  }
-
-  * { margin: 0; padding: 0; box-sizing: border-box; }
-
-  html { scroll-behavior: smooth; }
-
-  body {
-    font-family: 'DM Sans', sans-serif;
-    background: var(--bege);
-    color: var(--text);
-    line-height: 1.65;
-    font-size: 16px;
-  }
-
-  /* ── NAV ── */
-  nav {
-    position: fixed;
-    top: 0; left: 0; right: 0;
-    z-index: 100;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 0 5%;
-    height: 68px;
-    background: rgba(250,250,247,0.88);
-    backdrop-filter: blur(14px);
-    border-bottom: 1px solid rgba(32,125,80,0.10);
-    transition: box-shadow .3s;
-  }
-  nav.scrolled { box-shadow: 0 2px 20px rgba(0,0,0,0.07); }
-
-  .nav-logo {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 1.35rem;
-    font-weight: 600;
-    color: var(--verde);
-    letter-spacing: 0.01em;
-    text-decoration: none;
-    line-height: 1.2;
-  }
-  .nav-logo span { color: var(--azul); }
-
-  .nav-links {
-    display: flex;
-    gap: 2rem;
-    list-style: none;
-  }
-  .nav-links a {
-    font-size: .875rem;
-    font-weight: 400;
-    color: var(--text-soft);
-    text-decoration: none;
-    letter-spacing: 0.02em;
-    transition: color .2s;
-  }
-  .nav-links a:hover { color: var(--verde); }
-
-  .nav-cta {
-    background: var(--verde);
-    color: white !important;
-    padding: .45rem 1.1rem;
-    border-radius: 50px;
-    font-weight: 500 !important;
-    transition: background .2s, transform .1s !important;
-  }
-  .nav-cta:hover { background: #1a664166 !important; transform: translateY(-1px); }
-
-  .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; border: none; background: none; padding: 4px; }
-  .hamburger span { display: block; width: 22px; height: 2px; background: var(--text); border-radius: 2px; transition: .3s; }
-
-  /* ── SECTIONS BASE ── */
-  section { padding: 90px 5%; }
-  .container { max-width: 1100px; margin: 0 auto; }
-
-  /* ── HERO ── */
-  #home {
-    padding-top: 130px;
-    padding-bottom: 90px;
-    background: linear-gradient(160deg, #9bffc888 0%, var(--bege) 60%);
-    position: relative;
-    overflow: hidden;
-  }
-  #home::before {
-    content: '';
-    position: absolute;
-    top: -80px; right: -120px;
-    width: 500px; height: 500px;
-    border-radius: 50%;
-    background: radial-gradient(circle, rgba(32,125,80,0.07) 0%, transparent 70%);
-    pointer-events: none;
-  }
-  #home::after {
-    content: '';
-    position: absolute;
-    bottom: -60px; left: -80px;
-    width: 350px; height: 350px;
-    border-radius: 50%;
-    background: radial-gradient(circle, rgba(12,35,114,0.05) 0%, transparent 70%);
-    pointer-events: none;
-  }
-
-  .hero-inner {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 4rem;
-    align-items: center;
-    max-width: 1100px;
-    margin: 0 auto;
-  }
-
-  .hero-tag {
-    display: inline-flex;
-    align-items: center;
-    gap: .5rem;
-    background: var(--verde-light);
-    color: var(--verde);
-    font-size: .8rem;
-    font-weight: 500;
-    letter-spacing: .05em;
-    text-transform: uppercase;
-    padding: .35rem .9rem;
-    border-radius: 50px;
-    margin-bottom: 1.5rem;
-  }
-  .hero-tag::before { content: '●'; font-size: .5rem; }
-
-  .hero-title {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: clamp(2.4rem, 4vw, 3.6rem);
-    font-weight: 600;
-    line-height: 1.15;
-    color: var(--azul);
-    margin-bottom: 1.2rem;
-  }
-  .hero-title em {
-    font-style: italic;
-    color: var(--verde);
-  }
-
-  .hero-subtitle {
-    font-size: 1.05rem;
-    color: var(--text-soft);
-    font-weight: 300;
-    margin-bottom: 2rem;
-    max-width: 440px;
-  }
-
-  .hero-btns { display: flex; gap: 1rem; flex-wrap: wrap; }
-
-  .btn-primary {
-    background: var(--verde);
-    color: white;
-    padding: .75rem 1.8rem;
-    border-radius: 50px;
-    font-size: .95rem;
-    font-weight: 500;
-    text-decoration: none;
-    transition: background .2s, transform .15s, box-shadow .2s;
-    box-shadow: 0 4px 16px rgba(32,125,80,0.25);
-  }
-  .btn-primary:hover { background: #1a6641; transform: translateY(-2px); box-shadow: 0 6px 24px rgba(32,125,80,0.30); }
-
-  .btn-outline {
-    border: 1.5px solid var(--azul);
-    color: var(--azul);
-    padding: .75rem 1.8rem;
-    border-radius: 50px;
-    font-size: .95rem;
-    font-weight: 500;
-    text-decoration: none;
-    transition: background .2s, color .2s;
-  }
-  .btn-outline:hover { background: var(--azul); color: white; }
-
-  /* Hero visual */
-  .hero-visual {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-  }
-
-  .hero-card {
-    background: white;
-    border-radius: var(--radius);
-    padding: 1.5rem;
-    box-shadow: var(--shadow);
-    animation: float 5s ease-in-out infinite;
-  }
-  .hero-card:nth-child(2) { animation-delay: -2.5s; margin-left: 2rem; }
-
-  @keyframes float {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-8px); }
-  }
-
-  .card-icon {
-    width: 42px; height: 42px;
-    border-radius: 10px;
-    display: flex; align-items: center; justify-content: center;
-    font-size: 1.3rem;
-    margin-bottom: .8rem;
-  }
-  .card-icon.green { background: var(--verde-light); }
-  .card-icon.blue { background: var(--azul-light); }
-  .card-icon.brown { background: var(--marrom-light); }
-
-  .card-title { font-size: .9rem; font-weight: 500; color: var(--text); margin-bottom: .3rem; }
-  .card-desc { font-size: .8rem; color: var(--text-muted); line-height: 1.5; }
-
-  /* ── SECTION LABELS ── */
-  .section-label {
-    font-size: .75rem;
-    font-weight: 500;
-    letter-spacing: .1em;
-    text-transform: uppercase;
-    color: var(--verde);
-    margin-bottom: .6rem;
-  }
-
-  .section-title {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: clamp(1.8rem, 3vw, 2.6rem);
-    font-weight: 600;
-    color: var(--azul);
-    line-height: 1.2;
-    margin-bottom: 1rem;
-  }
-
-  .section-subtitle {
-    font-size: 1rem;
-    color: var(--text-soft);
-    font-weight: 300;
-    max-width: 580px;
-  }
-
-  /* ── SERVIÇOS ── */
-  #servicos {background: linear-gradient(160deg, var(--bege) 0%,#9bffc888 190%); }
-
-  .services-header { margin-bottom: 3rem; }
-
-  .services-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1.5rem;
-  }
-
-  .service-card {
-    background: var(--off-white);
-    border-radius: var(--radius);
-    padding: 2rem 1.6rem;
-    transition: transform .25s, box-shadow .25s;
-    border: 1px solid transparent;
-    cursor: default;
-  }
-  .service-card:hover {
-    transform: translateY(-4px);
-    box-shadow: var(--shadow-hover);
-    border-color: var(--verde-mid);
-  }
-
-  .service-icon {
-    width: 48px; height: 48px;
-    border-radius: 12px;
-    display: flex; align-items: center; justify-content: center;
-    font-size: 1.4rem;
-    margin-bottom: 1.2rem;
-  }
-
-  .service-card h3 {
-    font-size: 1.05rem;
-    font-weight: 500;
-    color: var(--azul);
-    margin-bottom: .6rem;
-  }
-  .service-card p { font-size: .875rem; color: var(--text-soft); line-height: 1.6; }
-
-  /* ── PERÍCIA ── */
-  #pericia {background: linear-gradient(160deg, var(--azul-light) 100%,#9bffc888 0%); }
-
-  .pericia-inner {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 4rem;
-    align-items: start;
-  }
-
-  .pericia-badge {
-    display: inline-flex;
-    align-items: center;
-    gap: .5rem;
-    background: rgba(255,255,255,0.12);
-    color: rgba(255,255,255,0.9);
-    font-size: .75rem;
-    letter-spacing: .06em;
-    text-transform: uppercase;
-    padding: .35rem .9rem;
-    border-radius: 50px;
-    margin-bottom: 1.2rem;
-  }
-
-  #pericia .section-title { color: white; }
-  #pericia .section-subtitle { color: rgba(255,255,255,0.75); max-width: 100%; }
-
-  .pericia-list {
-    list-style: none;
-    display: flex;
-    flex-direction: column;
-    gap: .8rem;
-    margin-top: 1.5rem;
-  }
-  .pericia-list li {
-    display: flex;
-    align-items: flex-start;
-    gap: .75rem;
-    font-size: .9rem;
-    color: rgba(255,255,255,0.85);
-    line-height: 1.5;
-  }
-  .pericia-list li::before {
-    content: '✓';
-    flex-shrink: 0;
-    width: 22px; height: 22px;
-    background: rgba(32,125,80,0.5);
-    border-radius: 50%;
-    display: flex; align-items: center; justify-content: center;
-    font-size: .75rem;
-    color: #7de0a8;
-    margin-top: .1rem;
-  }
-
-  .pericia-cards { display: flex; flex-direction: column; gap: 1rem; }
-
-  .pericia-info-card {
-    background: rgba(255,255,255,0.08);
-    border: 1px solid rgba(255,255,255,0.12);
-    border-radius: var(--radius);
-    padding: 1.4rem;
-    backdrop-filter: blur(8px);
-  }
-  .pericia-info-card h4 {
-    font-size: .85rem;
-    font-weight: 500;
-    color: rgba(255,255,255,0.6);
-    text-transform: uppercase;
-    letter-spacing: .06em;
-    margin-bottom: .5rem;
-  }
-  .pericia-info-card p { font-size: .9rem; color: white; line-height: 1.5; }
-
-  /* ── PALESTRAS ── */
-  #palestras { background: var(--off-white); }
-
-  .palestras-grid {
-    display: grid;
-    grid-template-columns: 1fr 1.2fr;
-    gap: 3rem;
-    align-items: start;
-    margin-top: 2.5rem;
-  }
-
-  .format-cards { display: flex; flex-direction: column; gap: 1rem; }
-
-  .format-card {
-    background: white;
-    border-radius: var(--radius);
-    padding: 1.4rem 1.6rem;
-    box-shadow: var(--shadow);
-    display: flex;
-    gap: 1rem;
-    align-items: flex-start;
-    transition: transform .2s;
-  }
-  .format-card:hover { transform: translateX(4px); }
-
-  .format-icon {
-    width: 44px; height: 44px; flex-shrink: 0;
-    border-radius: 10px;
-    display: flex; align-items: center; justify-content: center;
-    font-size: 1.3rem;
-  }
-
-  .format-card h4 { font-size: .95rem; font-weight: 500; color: var(--azul); margin-bottom: .3rem; }
-  .format-card p { font-size: .83rem; color: var(--text-soft); }
-
-  .topics-box {
-    background: white;
-    border-radius: var(--radius);
-    padding: 2rem;
-    box-shadow: var(--shadow);
-    position: sticky;
-    top: 90px;
-  }
-  .topics-box h3 {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 1.25rem;
-    font-weight: 600;
-    color: var(--azul);
-    margin-bottom: 1.2rem;
-  }
-
-  .topic-pill {
-    display: inline-block;
-    background: var(--verde-light);
-    color: var(--verde);
-    font-size: .78rem;
-    font-weight: 500;
-    padding: .35rem .8rem;
-    border-radius: 50px;
-    margin: .25rem;
-    transition: background .2s, color .2s;
-  }
-  .topic-pill:hover { background: var(--verde); color: white; }
-
-  .topics-note {
-    margin-top: 1rem;
-    padding-top: 1rem;
-    border-top: 1px solid #eee;
-    font-size: .8rem;
-    color: var(--text-muted);
-    font-style: italic;
-  }
-
-  .publicos-wrap { margin-top: 2.5rem; }
-
-  .publicos-title {
-    font-size: .85rem;
-    color: var(--text-muted);
-    text-transform: uppercase;
-    letter-spacing: .08em;
-    margin-bottom: .8rem;
-  }
-
-  .publicos-row {
-    display: flex;
-    flex-wrap: wrap;
-    gap: .6rem;
-  }
-
-  .publico-tag {
-    display: flex;
-    align-items: center;
-    gap: .4rem;
-    background: var(--white);
-    color: var(--azul);
-    font-size: .82rem;
-    font-weight: 500;
-    padding: .4rem .9rem;
-    border-radius: 50px;
-  }
-
-  /* ── QUEM SOMOS ── */
-  #sobre { background: var(--azul-light); }
-
-  .sobre-inner {
-    display: grid;
-    grid-template-columns: 1fr 1.4fr;
-    gap: 4rem;
-    align-items: start;
-  }
-
-  .sobre-photo-placeholder {
-    background: linear-gradient(145deg, var(--verde-light), var(--azul-light));
-    border-radius: var(--radius);
-    aspect-ratio: 3/4;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 4rem;
-    position: relative;
-    overflow: hidden;
-  }
-  .sobre-photo-placeholder::after {
-    content: 'Foto de Luciana Santos';
-    position: absolute;
-    bottom: 1rem;
-    font-size: .78rem;
-    color: var(--text-muted);
-    font-style: italic;
-    font-family: 'DM Sans', sans-serif;
-  }
-
-  .crp-badge {
-    display: inline-flex;
-    align-items: center;
-    gap: .5rem;
-    background: var(--verde-light);
-    color: var(--verde);
-    font-size: .82rem;
-    font-weight: 500;
-    padding: .4rem 1rem;
-    border-radius: 50px;
-    margin-bottom: 1rem;
-    letter-spacing: .02em;
-  }
-
-  .sobre-bio {
-    font-size: .95rem;
-    color: var(--text-soft);
-    line-height: 1.75;
-    margin-top: 1rem;
-    font-weight: 300;
-  }
-
-  .formacoes { margin-top: 1.5rem; }
-  .formacoes-title { font-size: .8rem; font-weight: 500; text-transform: uppercase; letter-spacing: .07em; color: var(--text-muted); margin-bottom: .8rem; }
-
-  .formacao-item {
-    display: flex;
-    align-items: center;
-    gap: .75rem;
-    padding: .6rem 0;
-    border-bottom: 1px solid #f0f0f0;
-    font-size: .875rem;
-    color: var(--text-soft);
-  }
-  .formacao-item:last-child { border-bottom: none; }
-  .formacao-year { font-size: .78rem; color: var(--text-muted); min-width: 36px; }
-
-  .mvv-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-top: 1.5rem; }
-
-  .mvv-card {
-    background: var(--off-white);
-    border-radius: var(--radius-sm);
-    padding: 1.1rem;
-    border-left: 3px solid var(--verde);
-  }
-  .mvv-card:nth-child(2) { border-color: var(--azul); }
-  .mvv-card h5 { font-size: .78rem; text-transform: uppercase; letter-spacing: .06em; color: var(--text-muted); margin-bottom: .4rem; }
-  .mvv-card p { font-size: .83rem; color: var(--text); line-height: 1.5; }
-
-  /* ── CONTATO ── */
-  #contato { background: var(--verde-light); }
-
-  .contato-inner {
-   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 3rem;
-  }
-
-  .contato-text .section-title { font-size: clamp(1.6rem, 2.5vw, 2.2rem); }
-
-  .contato-text p {
-    font-size: 1rem;
-    color: var(--text-soft);
-    line-height: 1.7;
-    margin-top: .8rem;
-    font-weight: 300;
-  }
-
-  .contato-options { display: flex; flex-direction: column; gap: .9rem; margin-top: 1.8rem; }
-
-  .contato-btn {
-    display: flex;
-    align-items: center;
-    gap: .9rem;
-    padding: 1rem 1.4rem;
-    border-radius: var(--radius);
-    text-decoration: none;
-    font-weight: 500;
-    font-size: .95rem;
-    transition: transform .2s, box-shadow .2s;
-    box-shadow: var(--shadow);
-  }
-  .contato-btn:hover { transform: translateY(-2px); box-shadow: var(--shadow-hover); }
-
-  .contato-btn.whats { background: #25d366; color: white; }
-  .contato-btn.email { background: white; color: var(--azul); }
-  .contato-btn.insta { background: linear-gradient(135deg, #e1306c, #fd1d1d, #fcb045); color: white; }
-
-  .btn-icon { font-size: 1.2rem; }
-  .btn-text-small { font-size: .78rem; font-weight: 300; opacity: .85; }
-  .btn-text-wrap { display: flex; flex-direction: column; line-height: 1.2; }
-
-  .contato-form {
-    background: white;
-    border-radius: var(--radius);
-    padding: 2rem;
-    box-shadow: var(--shadow);
-  }
-  .contato-form h3 {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 1.3rem;
-    font-weight: 600;
-    color: var(--azul);
-    margin-bottom: 1.4rem;
-  }
-
-  .form-group { margin-bottom: 1rem; }
-
-  .form-group label {
-    display: block;
-    font-size: .8rem;
-    font-weight: 500;
-    color: var(--text-soft);
-    margin-bottom: .4rem;
-    letter-spacing: .02em;
-  }
-
-  .form-group input,
-  .form-group select,
-  .form-group textarea {
-    width: 100%;
-    padding: .75rem 1rem;
-    border: 1.5px solid #e8e8e8;
-    border-radius: var(--radius-sm);
-    font-family: 'DM Sans', sans-serif;
-    font-size: .9rem;
-    color: var(--text);
-    background: var(--off-white);
-    transition: border-color .2s;
-    outline: none;
-    resize: vertical;
-  }
-  .form-group input:focus,
-  .form-group select:focus,
-  .form-group textarea:focus { border-color: var(--verde); background: white; }
-
-  .form-submit {
-    width: 100%;
-    padding: .85rem;
-    background: var(--verde);
-    color: white;
-    border: none;
-    border-radius: 50px;
-    font-family: 'DM Sans', sans-serif;
-    font-size: .95rem;
-    font-weight: 500;
-    cursor: pointer;
-    transition: background .2s, transform .15s;
-    margin-top: .5rem;
-  }
-  .form-submit:hover { background: #1a6641; transform: translateY(-1px); }
-
-  /* ── FAQ ── */
-  #faq { background: white; }
-
-  .faq-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2.5rem; align-items: start; }
-
-  .faq-list { display: flex; flex-direction: column; gap: .7rem; }
-
-  .faq-item {
-    border: 1px solid #eee;
-    border-radius: var(--radius-sm);
-    overflow: hidden;
-  }
-
-  .faq-q {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1rem 1.2rem;
-    cursor: pointer;
-    font-size: .9rem;
-    font-weight: 500;
-    color: var(--azul);
-    gap: 1rem;
-    user-select: none;
-    transition: background .2s;
-  }
-  .faq-q:hover { background: var(--off-white); }
-
-  .faq-arrow {
-    flex-shrink: 0;
-    width: 20px; height: 20px;
-    border-radius: 50%;
-    background: var(--verde-light);
-    color: var(--verde);
-    display: flex; align-items: center; justify-content: center;
-    font-size: .7rem;
-    transition: transform .25s;
-  }
-  .faq-item.open .faq-arrow { transform: rotate(180deg); }
-
-  .faq-a {
-    padding: 0 1.2rem;
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height .3s ease, padding .3s;
-    font-size: .875rem;
-    color: var(--text-soft);
-    line-height: 1.65;
-  }
-  .faq-item.open .faq-a { max-height: 300px; padding: 0 1.2rem 1rem; }
-
-  .faq-cta {
-    background: var(--off-white);
-    border-radius: var(--radius);
-    padding: 2rem;
-    position: sticky;
-    top: 90px;
-    border: 1px solid var(--verde-mid);
-  }
-  .faq-cta h3 {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 1.5rem;
-    font-weight: 600;
-    color: var(--azul);
-    line-height: 1.25;
-    margin-bottom: .8rem;
-  }
-  .faq-cta p { font-size: .875rem; color: var(--text-soft); margin-bottom: 1.5rem; }
-
-  /* ── FOOTER ── */
-  footer {
-    background: var(--azul);
-    color: rgba(255,255,255,0.7);
-    padding: 3rem 5% 2rem;
-  }
-  .footer-inner {
-    max-width: 1100px;
-    margin: 0 auto;
-    display: grid;
-    grid-template-columns: 1.5fr 1fr 1fr;
-    gap: 2.5rem;
-    padding-bottom: 2rem;
-    border-bottom: 1px solid rgba(255,255,255,0.1);
-  }
-
-  .footer-brand p {
-    font-size: .85rem;
-    line-height: 1.65;
-    margin-top: .8rem;
-    max-width: 280px;
-  }
-  .footer-nav-title {
-    font-size: .78rem;
-    text-transform: uppercase;
-    letter-spacing: .08em;
-    color: rgba(255,255,255,0.4);
-    margin-bottom: .8rem;
-  }
-  .footer-links { list-style: none; display: flex; flex-direction: column; gap: .5rem; }
-  .footer-links a { color: rgba(255,255,255,0.65); text-decoration: none; font-size: .875rem; transition: color .2s; }
-  .footer-links a:hover { color: white; }
-
-  .footer-bottom {
-    max-width: 1100px;
-    margin: 1.5rem auto 0;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    font-size: .78rem;
-    color: rgba(255,255,255,0.35);
-  }
-
-  /* ── MOBILE ── */
-  @media (max-width: 900px) {
-    .nav-links { display: none; }
-    .hamburger { display: flex; }
-    nav.menu-open .nav-links {
-      display: flex;
-      flex-direction: column;
-      position: fixed;
-      top: 68px; left: 0; right: 0;
-      background: white;
-      padding: 1.5rem 5%;
-      box-shadow: var(--shadow);
-      gap: 1rem;
-    }
-    .hero-inner { grid-template-columns: 1fr; }
-    .hero-visual { display: none; }
-    .services-grid { grid-template-columns: 1fr; }
-    .pericia-inner { grid-template-columns: 1fr; }
-    .palestras-grid { grid-template-columns: 1fr; }
-    .sobre-inner { grid-template-columns: 1fr; }
-    .contato-inner { grid-template-columns: 1fr; }
-    .faq-grid { grid-template-columns: 1fr; }
-    .footer-inner { grid-template-columns: 1fr; }
-    .mvv-grid { grid-template-columns: 1fr; }
-    section { padding: 60px 5%; }
-  }
-
-  /* ── REVEAL ANIMATION ── */
-  .reveal {
-    opacity: 0;
-    transform: translateY(20px);
-    transition: opacity .6s ease, transform .6s ease;
-  }
-  .reveal.visible {
-    opacity: 1;
-    transform: translateY(0);
-  }
-
-    </style>
 
 <!-- NAV -->
 <nav id="mainNav">
@@ -848,7 +45,6 @@
         <a href="#servicos" class="btn-outline">Conhecer serviços</a>
       </div>
     </div>
-
     <div class="hero-visual">
       <div class="hero-card">
         <div class="card-icon green">🌿</div>
@@ -961,7 +157,6 @@
       <h2 class="section-title">Cursos, Palestras e Treinamentos</h2>
       <p class="section-subtitle">Atividades construídas a partir da Psicologia científica aliada à experiência prática, criando espaços de diálogo, crescimento e fortalecimento de vínculos.</p>
     </div>
-
     <div class="palestras-grid">
       <div>
         <div class="format-cards reveal">
@@ -987,7 +182,6 @@
             </div>
           </div>
         </div>
-
         <div class="publicos-wrap reveal">
           <div class="publicos-title">Para quem é indicado</div>
           <div class="publicos-row">
@@ -999,12 +193,10 @@
             <span class="publico-tag">👤 Individual</span>
           </div>
         </div>
-
         <div style="margin-top:2rem" class="reveal">
           <a href="#contato" class="btn-primary">Solicitar proposta personalizada</a>
         </div>
       </div>
-
       <div class="topics-box reveal" style="transition-delay:.2s">
         <h3>Temas frequentes</h3>
         <div>
@@ -1041,7 +233,9 @@
   <div class="container">
     <div class="sobre-inner">
       <div class="reveal">
-        <div class="sobre-photo-placeholder"> <img src="/static/img/WhatsApp Image 2026-03-31 at 15.53.30.jpeg" alt=""></div>
+        <div class="sobre-photo-placeholder">
+          <img src="/static/img/WhatsApp Image 2026-03-31 at 15.53.30.jpeg" alt="Luciana Santos" style="width:100%;height:100%;object-fit:cover;border-radius:var(--radius);">
+        </div>
       </div>
       <div class="reveal" style="transition-delay:.15s">
         <div class="section-label">Quem somos</div>
@@ -1053,7 +247,6 @@
         <p class="sobre-bio" style="margin-top:.8rem">
           A psicologia entrou na sua vida aos 15 anos, e desde então nunca mais se afastou dessa paixão. Ao longo dos anos, a curiosidade a levou a explorar contabilidade, sociologia, teologia e, finalmente, a psicologia se tornou sua verdadeira vocação.
         </p>
-
         <div class="formacoes">
           <div class="formacoes-title">Formação</div>
           <div class="formacao-item"><span class="formacao-year">2000</span> Contabilidade — SENAC</div>
@@ -1064,7 +257,6 @@
           <div class="formacao-item"><span class="formacao-year">MBA</span> Gerenciamento Executivo de Projetos</div>
           <div class="formacao-item"><span class="formacao-year">Pós</span> Psicologia Jurídica</div>
         </div>
-
         <div class="mvv-grid">
           <div class="mvv-card">
             <h5>Missão</h5>
@@ -1134,20 +326,16 @@
           </div>
         </div>
       </div>
-
       <div class="faq-cta reveal" style="transition-delay:.2s">
         <h3>Ainda tem dúvidas? Vamos conversar!</h3>
-        
         <p>Estou aberta ao diálogo. Entre em contato sem compromisso — adoro compartilhar conhecimento e encontrar a melhor forma de ajudar.</p>
-        <a href="https://wa.me/5547988410744" 
-   class="btn btn-success d-inline-flex align-items-center gap-2 px-4 py-2" 
-   target="_blank">
-
-  <i class="fa-brands fa-whatsapp"></i>
-  Me chama no WhatsApp
-</a>
+        <a href="https://wa.me/5547988410744"
+           class="btn btn-success d-inline-flex align-items-center gap-2 px-4 py-2"
+           target="_blank">
+          <i class="fa-brands fa-whatsapp"></i>
+          Me chama no WhatsApp
         </a>
-        <div style="margin-top:1.5rem;padding-top:1.5rem;border-top:1px solid var(--verde-mid)">
+        <div style="margin-top:1.5rem;padding-top:1.5rem;border-top:1px solid #ddd">
           <div style="font-size:.82rem;color:var(--text-muted);margin-bottom:.6rem;font-weight:500;text-transform:uppercase;letter-spacing:.05em">Valores centrais</div>
           <div style="display:flex;flex-wrap:wrap;gap:.4rem">
             <span class="topic-pill">Acolhimento</span>
@@ -1166,44 +354,38 @@
 <!-- CONTATO -->
 <section id="contato">
   <div class="container">
-     <div class="contato-inner">
+    <div class="contato-inner">
       <div class="reveal">
         <div class="section-label">Fale conosco</div>
         <h2 class="section-title">Vamos caminhar juntos</h2>
         <p>A vida não precisa ser um peso. Nessa era agitada, busque o apoio necessário para você, seu familiar, sua escola ou empresa.</p>
-
-<div class="contato-options d-flex flex-column gap-3">
-
-  <!-- WhatsApp -->
-  <a href="https://wa.me/5547988410744" target="_blank"
-     class="btn btn-success btn-lg d-flex align-items-center gap-3 text-start">
-    <i class="fa-brands fa-whatsapp fs-4"></i>
-    <div class="d-flex flex-column">
-      <span>WhatsApp</span>
-      <small class="text-white-50">(47) 98841-0744</small>
-    </div>
-  </a>
-
-  <!-- Email -->
-  <a href="mailto:lucianasantos@plenapsi.com.br"
-     class="btn btn-light btn-lg d-flex align-items-center gap-3 text-start border">
-    <i class="fa-solid fa-envelope fs-4"></i>
-    <div class="d-flex flex-column">
-      <span>E-mail</span>
-      <small class="text-muted">lucianasantos@plenapsi.com.br</small>
-    </div>
-  </a>
-
-  <!-- Instagram -->
-  <a href="https://instagram.com/LucianaSantos.Lueduca" target="_blank"
-     class="btn btn-danger btn-lg d-flex align-items-center gap-3 text-start">
-    <i class="fa-brands fa-instagram fs-4"></i>
-    <div class="d-flex flex-column">
-      <span>Instagram</span>
-      <small class="text-white-50">@LucianaSantos.Lueduca</small>
-    </div>
-</a>
-
+        <div class="contato-options d-flex flex-column gap-3">
+          <a href="https://wa.me/5547988410744" target="_blank"
+             class="btn btn-success btn-lg d-flex align-items-center gap-3 text-start">
+            <i class="fa-brands fa-whatsapp fs-4"></i>
+            <div class="d-flex flex-column">
+              <span>WhatsApp</span>
+              <small class="text-white-50">(47) 98841-0744</small>
+            </div>
+          </a>
+          <a href="mailto:lucianasantos@plenapsi.com.br"
+             class="btn btn-light btn-lg d-flex align-items-center gap-3 text-start border">
+            <i class="fa-solid fa-envelope fs-4"></i>
+            <div class="d-flex flex-column">
+              <span>E-mail</span>
+              <small class="text-muted">lucianasantos@plenapsi.com.br</small>
+            </div>
+          </a>
+          <a href="https://instagram.com/LucianaSantos.Lueduca" target="_blank"
+             class="btn btn-danger btn-lg d-flex align-items-center gap-3 text-start">
+            <i class="fa-brands fa-instagram fs-4"></i>
+            <div class="d-flex flex-column">
+              <span>Instagram</span>
+              <small class="text-white-50">@LucianaSantos.Lueduca</small>
+            </div>
+          </a>
+        </div>
+      </div>
       <div class="contato-form reveal" style="transition-delay:.15s">
         <h3>Envie uma mensagem</h3>
         <div class="form-group">
@@ -1241,9 +423,7 @@
 <footer>
   <div class="footer-inner">
     <div class="footer-brand">
-      <div class="nav-logo" style="color:white">PlenaPsi<br><span style="font-size:.85rem;font-weight:300;color:rgba(255,255,255,0.4)">Psicologia · Desenvolvimento · Perícia</span></div>
       <img src="{% static 'img/logo.png' %}" alt="Logo PlenaPsi">
-      <p>Fundada pela psicóloga Luciana Santos (CRP 12/25351). Referência em saúde mental, desenvolvimento humano e perícia psicológica no Vale do Itajaí/SC.</p>
     </div>
     <div>
       <div class="footer-nav-title">Serviços</div>
@@ -1271,12 +451,10 @@
 </footer>
 
 <script>
-  // Scroll nav shadow
   window.addEventListener('scroll', () => {
     document.getElementById('mainNav').classList.toggle('scrolled', window.scrollY > 10);
   });
 
-  // Mobile menu
   function toggleMenu() {
     document.getElementById('mainNav').classList.toggle('menu-open');
   }
@@ -1284,7 +462,6 @@
     a.addEventListener('click', () => document.getElementById('mainNav').classList.remove('menu-open'));
   });
 
-  // FAQ
   function toggleFaq(el) {
     const item = el.parentElement;
     const isOpen = item.classList.contains('open');
@@ -1292,13 +469,11 @@
     if (!isOpen) item.classList.add('open');
   }
 
-  // Reveal on scroll
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
   }, { threshold: 0.1 });
   document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
-  // Form submit
   function handleSubmit() {
     const btn = document.querySelector('.form-submit');
     btn.textContent = '✓ Mensagem enviada!';
